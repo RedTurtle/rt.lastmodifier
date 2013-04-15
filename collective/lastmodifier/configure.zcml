@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.lastmodifier">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <adapter name="Modifier" factory=".indexer.last_modifier" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.lastmodifier"
+      directory="profiles/default"
+      description="Save and show last modifier user information on site contents"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.lastmodifier.various"
+      title="collective.lastmodifier: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="collective.lastmodifier.setuphandlers.setupVarious">
+      <depends name="catalog"/>
+  </genericsetup:importStep>
+
+</configure>
