@@ -15,6 +15,7 @@ setup(name='collective.lastmodifier',
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
       keywords='plone plonegov modifier',

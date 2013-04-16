@@ -25,7 +25,7 @@ def addKeyToCatalog(portal):
             indexables.append(name)
             logger.info("Added %s for field %s.", meta_type, name)
     if len(indexables) > 0:
-        logger.info("Indexing new indexes %s.", ', '.join(indexables))
+        logger.info("Indexing new index: %s.", ', '.join(indexables))
         catalog.manage_reindexIndex(ids=indexables)
 
 def registerProperties(context):
