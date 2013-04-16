@@ -76,7 +76,7 @@
   </tal:expired>
 
   <span class="contentHistory" id="content-history"
-        tal:condition="view/show_history">
+        tal:condition="view/show_history|nothing">
     —
     <a href="#"
        tal:attributes="href string:${here/absolute_url}/@@historyview"
