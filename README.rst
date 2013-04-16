@@ -43,6 +43,28 @@ When the new byline information is used?
 * ``displayLastModifierInByline`` must be true.
 * *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
+Installation
+============
+
+Add ``collective.lastmodifier`` to your buildout:
+
+.. code-block:: ini
+
+    [buildout]
+    ...
+    
+    [instance]
+    ...
+    eggs=
+       ...
+       collective.lastmodifier
+
+After that, install the "collective.lastmodifier" add-on product.
+
+.. Note::
+    Installation wil trigger the new index creation and population. This can require some times
+    on huge sites.
+
 Credits
 =======
 
