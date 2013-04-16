@@ -18,16 +18,16 @@ class LastModifierLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML for this package
-        import collective.lastmodifier
+        import rt.lastmodifier
         xmlconfig.file('configure.zcml',
-                       collective.lastmodifier,
+                       rt.lastmodifier,
                        context=configurationContext)
-        z2.installProduct(app, 'collective.lastmodifier')
+        z2.installProduct(app, 'rt.lastmodifier')
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.lastmodifier:default')
+        applyProfile(portal, 'rt.lastmodifier:default')
         portal.portal_workflow.setDefaultChain("simple_publication_workflow")
-        #quickInstallProduct(portal, 'collective.analyticspanel')
+        #quickInstallProduct(portal, 'rt.lastmodifier')
         setRoles(portal, TEST_USER_ID, ['Member', 'Manager'])
         acl_users = portal.acl_users
         acl_users.userFolderAddUser('user1', 'secret', ['Member'], [])

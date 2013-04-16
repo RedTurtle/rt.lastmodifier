@@ -54,7 +54,7 @@
                             modifier_is_openid python:'/' in modifier_short_form;
                             modifier_id python:(modifier_short_form, modifier_long_form)[modifier_is_openid];">
          <span class="documentModifier">
-            <tal:i18n i18n:domain="collective.lastmodifier" i18n:translate="label_by_modifier">
+            <tal:i18n i18n:domain="rt.lastmodifier" i18n:translate="label_by_modifier">
               by
 		      <a href="#"
 		         tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${modifier_id}"

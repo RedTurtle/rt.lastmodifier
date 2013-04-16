@@ -20,7 +20,7 @@ Expand the document byline section
 
 Optionally, this new information can be added to the content's view.
 
-.. image:: http://blog.redturtle.it/pypi-images/collective.lastmodifier/collective.lastmodifier-0.1-01.png
+.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.1-01.png
    :alt: Document byline preview
 
 To enable this you need to access ZMI and change the new ``displayLastModifierInByline`` property for the
@@ -31,7 +31,7 @@ date (see PLIP `#8699`__):
 
 __ https://dev.plone.org/ticket/8699
 
-.. image:: http://blog.redturtle.it/pypi-images/collective.lastmodifier/collective.lastmodifier-0.1-02.png
+.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.1-02.png
    :alt: Document byline preview in the Plone 4.3 style
 
 In facts, this can backport the publication date feature to older Plone versions (but this is a side effect of
@@ -46,7 +46,7 @@ When the new byline information is used?
 Installation
 ============
 
-Add ``collective.lastmodifier`` to your buildout:
+Add ``rt.lastmodifier`` to your buildout:
 
 .. code-block:: ini
 
@@ -57,9 +57,9 @@ Add ``collective.lastmodifier`` to your buildout:
     ...
     eggs=
        ...
-       collective.lastmodifier
+       rt.lastmodifier
 
-After that, install the "collective.lastmodifier" add-on product.
+After that, install the "rt.lastmodifier" add-on product.
 
 .. Note::
     Installation wil trigger the new index creation and population. This can require some times

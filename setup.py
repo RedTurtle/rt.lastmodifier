@@ -5,7 +5,7 @@ version = '0.2.dev0'
 
 tests_require = ['plone.app.testing', 'pyquery']
 
-setup(name='collective.lastmodifier',
+setup(name='rt.lastmodifier',
       version=version,
       description="Save and show user last modifier information on Plone contents",
       long_description=open("README.rst").read() + "\n" +
@@ -21,13 +21,13 @@ setup(name='collective.lastmodifier',
         "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
-      keywords='plone plonegov modifier',
+      keywords='plone plonegov modifier catalog byline',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.it',
-      url='http://plone.org/products/collective.lastmodifier',
+      url='http://plone.org/products/rt.lastmodifier',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective'],
+      namespace_packages=['rt'],
       include_package_data=True,
       zip_safe=False,
       tests_require=tests_require,

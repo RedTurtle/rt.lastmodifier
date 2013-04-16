@@ -3,4 +3,4 @@
 from zope.interface import Interface
 
 class ILastModifierLayer(Interface):
-    """collective.lastmodifier product layer"""
+    """rt.lastmodifier product layer"""

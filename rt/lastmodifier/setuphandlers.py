@@ -2,7 +2,7 @@
 
 from Products.CMFCore.utils import getToolByName
 
-from collective.lastmodifier import logger
+from rt.lastmodifier import logger
 
 
 # form : http://maurits.vanrees.org/weblog/archive/2009/12/catalog
@@ -39,7 +39,7 @@ def registerProperties(context):
             logger.info("Added missing %s property" % prop['name'])
 
 def setupVarious(context):
-    if context.readDataFile('collective.lastmodifier_various.txt') is None:
+    if context.readDataFile('rt.lastmodifier_various.txt') is None:
         return
     portal = context.getSite()
     registerProperties(portal)
