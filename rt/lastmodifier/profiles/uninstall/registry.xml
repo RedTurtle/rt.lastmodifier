@@ -1,0 +1,10 @@
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="rt.lastmodifier">
+
+    <!-- work only on Plone 4.3 -->
+     <records interface="plone.app.querystring.interfaces.IQueryField"
+              prefix="plone.app.querystring.field.Modifier"
+              remove="True">
+    </records>
+
+</registry>

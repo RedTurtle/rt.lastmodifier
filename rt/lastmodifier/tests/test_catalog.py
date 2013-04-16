@@ -12,7 +12,7 @@ from plone.app.testing import TEST_USER_ID
 from Products.Archetypes.interfaces import IObjectEditedEvent
 from Products.Archetypes.event import ObjectEditedEvent
 
-from collective.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
+from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
 
 from base import BaseTestCase
 

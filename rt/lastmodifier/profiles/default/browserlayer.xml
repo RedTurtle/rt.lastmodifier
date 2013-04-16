@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <layers>
-    <layer name="collective.lastmodifier"
-           interface="collective.lastmodifier.interfaces.ILastModifierLayer" />
+    <layer name="rt.lastmodifier"
+           interface="rt.lastmodifier.interfaces.ILastModifierLayer" />
 </layers>

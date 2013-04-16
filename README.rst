@@ -66,7 +66,7 @@ After that, install the "rt.lastmodifier" add-on product.
     on huge sites.
 
 Compatibility
-=============
+-------------
 
 All Plone versions from 3.3 to 4.3.
 

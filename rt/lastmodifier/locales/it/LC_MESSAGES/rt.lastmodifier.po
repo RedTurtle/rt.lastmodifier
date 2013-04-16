@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-16 08:10+0000\n"
+"POT-Creation-Date: 2013-04-16 15:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -15,10 +15,19 @@ msgstr ""
 "Language-Code: it\n"
 "Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.lastmodifier\n"
+"Domain: rt.lastmodifier\n"
+
+#: ../profiles/default/portal_atct.xml
+#: ../profiles/default/registry.xml
+msgid "Modifier"
+msgstr "Ultimo a modificare"
 
 msgid "Save and show last modifier user information on site contents"
 msgstr "Salva e visualizza le informazioni sull'ultimo utente che ha modificato contenuti del sito"
+
+#: ../profiles/default/registry.xml
+msgid "The last person that modified an item"
+msgstr "L'ultima persona che ha modifica un documento"
 
 #. Default: "by ${modifier}"
 #: ../browser/document_byline.pt:59

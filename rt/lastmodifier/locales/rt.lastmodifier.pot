@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-04-16 08:10+0000\n"
+"POT-Creation-Date: 2013-04-16 15:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,9 +15,18 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.lastmodifier\n"
+"Domain: rt.lastmodifier\n"
+
+#: ../profiles/default/portal_atct.xml
+#: ../profiles/default/registry.xml
+msgid "Modifier"
+msgstr ""
 
 msgid "Save and show last modifier user information on site contents"
+msgstr ""
+
+#: ../profiles/default/registry.xml
+msgid "The last person that modified an item"
 msgstr ""
 
 #. Default: "by ${modifier}"

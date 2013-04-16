@@ -3,7 +3,7 @@
 import unittest
 
 from zope import interface
-from collective.lastmodifier.interfaces import ILastModifierLayer
+from rt.lastmodifier.interfaces import ILastModifierLayer
 
 class BaseTestCase(unittest.TestCase):
 

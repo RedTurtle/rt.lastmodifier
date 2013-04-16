@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<atcttool
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <topic_indexes i18n:domain="rt.lastmodifier">
+  <index name="Modifier" remove="True">
+  </index>
+ </topic_indexes>
+</atcttool>

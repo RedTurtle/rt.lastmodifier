@@ -1,11 +1,11 @@
-collective.lastmodifier Installation
-------------------------------------
+rt.lastmodifier Installation
+----------------------------
 
-To install collective.lastmodifier into the global Python environment (or a workingenv),
+To install rt.lastmodifier into the global Python environment (or a workingenv),
 using a traditional Zope 2 instance, you can do this:
 
 * When you're reading this you have probably already run 
-  ``easy_install collective.lastmodifier``. Find out how to install setuptools
+  ``easy_install rt.lastmodifier``. Find out how to install setuptools
   (and EasyInstall) here:
   http://peak.telecommunity.com/DevCenter/EasyInstall
 
@@ -16,11 +16,11 @@ using a traditional Zope 2 instance, you can do this:
 
 into your Zope instance.
 
-* Create a file called ``collective.lastmodifier-configure.zcml`` in the
+* Create a file called ``rt.lastmodifier-configure.zcml`` in the
   ``/path/to/instance/etc/package-includes`` directory.  The file
   should only contain this::
 
-    <include package="collective.lastmodifier" />
+    <include package="rt.lastmodifier" />
 
 .. _pythonproducts: http://plone.org/products/pythonproducts
 
@@ -28,13 +28,13 @@ into your Zope instance.
 Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
 recipe to manage your project, you can do this:
 
-* Add ``collective.lastmodifier`` to the list of eggs to install, e.g.:
+* Add ``rt.lastmodifier`` to the list of eggs to install, e.g.:
 
     [buildout]
     ...
     eggs =
         ...
-        collective.lastmodifier
+        rt.lastmodifier
        
 * Tell the plone.recipe.zope2instance recipe to install a ZCML slug:
 
@@ -42,7 +42,7 @@ recipe to manage your project, you can do this:
     recipe = plone.recipe.zope2instance
     ...
     zcml =
-        collective.lastmodifier
+        rt.lastmodifier
       
 * Re-run buildout, e.g. with:
 
