@@ -8,7 +8,7 @@ tests_require = ['plone.app.testing', 'pyquery']
 setup(name='collective.lastmodifier',
       version=version,
       description="Save and show user last modifier information on Plone contents",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
