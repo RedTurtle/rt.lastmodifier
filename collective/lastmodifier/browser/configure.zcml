@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.lastmodifier">
+
+     <browser:page
+        name="lastmodifier"
+        for="*"
+        class=".lastmodifier.LastModifierView"
+        permission="zope2.View"
+		layer="..interfaces.ILastModifierLayer"
+        />
+
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+		layer="..interfaces.ILastModifierLayer"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineViewlet"
+		template="document_byline.pt"
+        permission="zope2.View"
+        />
+
+</configure>

@@ -6,14 +6,24 @@
     i18n_domain="collective.lastmodifier">
 
   <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
 
   <adapter name="Modifier" factory=".indexer.last_modifier" />
+
+  <include package=".browser" />
 
   <genericsetup:registerProfile
       name="default"
       title="collective.lastmodifier"
       directory="profiles/default"
       description="Save and show last modifier user information on site contents"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.lastmodifier: uninstall"
+      directory="profiles/uninstall"
+      description="Remove collective.lastmodifier"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
