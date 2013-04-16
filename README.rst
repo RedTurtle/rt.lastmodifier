@@ -65,6 +65,11 @@ After that, install the "collective.lastmodifier" add-on product.
     Installation wil trigger the new index creation and population. This can require some times
     on huge sites.
 
+Compatibility
+=============
+
+All Plone versions from 3.3 to 4.3.
+
 Credits
 =======
 
