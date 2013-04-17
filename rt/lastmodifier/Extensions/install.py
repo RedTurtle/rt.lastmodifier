@@ -18,7 +18,7 @@ def _removeProperty(portal):
         pass
 
 def install(portal):
-    # keep this until we want to support Plone 3.3
+    # keep this until we want to support Plone < 4.2
     setup_tool = portal.portal_setup
     setup_tool.runAllImportStepsFromProfile('profile-rt.lastmodifier:default')
     if QS:

@@ -1,16 +1,17 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2013-04-17)
 ----------------
 
-Renamed the product from "collective.lastmodifier" to "rt.lastmodifier".
-This is unbelievable and embarassing, but I didn't find `collective.lastmodifier`__ when I looked for
-a Plone product with those features... and in the end I choosed the same name!
+* Renamed the product from "collective.lastmodifier" to "rt.lastmodifier".
+  This is unbelievable and embarassing, but I didn't find `collective.lastmodifier`__ when I looked for
+  a Plone product with those features... and in the end I choosed the same name!
 
-__ https://pypi.python.org/pypi/collective.lastmodifier
+  __ https://pypi.python.org/pypi/collective.lastmodifier
 
-However the original product is using a different approach.
+  However the original product is using a different approach.
+* Added collection criteria (for new and old ones)
 
 0.1 (Unreleased)
 ----------------
