@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="rt.lastmodifier">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="rt.lastmodifier"
+      directory="profiles/default"
+      description="Save and show last modifier user information on site contents"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="new-collection"
+      title="rt.lastmodifier: criteria for new style collections"
+      directory="profiles/new-collection"
+      description="Configure collection criteria for plone.app.querystring"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="rt.lastmodifier: uninstall"
+      directory="profiles/uninstall"
+      description="Remove rt.lastmodifier"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="new-collection-uninstall"
+      title="rt.lastmodifier: uninstall criteria"
+      directory="profiles/new-collection-uninstall"
+      description="Uninstall collection criteria for plone.app.querystring"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+
+  <genericsetup:importStep
+      name="rt.lastmodifier.various"
+      title="rt.lastmodifier: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="rt.lastmodifier.setuphandlers.setupVarious">
+      <depends name="catalog"/>
+  </genericsetup:importStep>
+
+</configure>
