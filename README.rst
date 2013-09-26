@@ -62,7 +62,7 @@ Add ``rt.lastmodifier`` to your buildout:
 After that, install the "rt.lastmodifier" add-on product.
 
 .. Note::
-    Installation wil trigger the new index creation and population. This can require some times
+    Installation will trigger the new index creation and population. This can require some times
     on huge sites.
 
 Compatibility
