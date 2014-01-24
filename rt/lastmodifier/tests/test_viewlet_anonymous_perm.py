@@ -3,24 +3,35 @@ from base import BaseTestCase
 from DateTime import DateTime
 from plone.app.testing import login
 from plone.app.testing import logout
-from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
-from Products.Archetypes.event import ObjectEditedEvent
-from Products.Archetypes.interfaces import IObjectEditedEvent
 from pyquery import PyQuery
 from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
-from zope.component import getMultiAdapter
-import zope.event
+from rt.lastmodifier.permissions import DocumentByLineViewAuthor, DocumentByLineViewLastModifier,\
+                                        DocumentByLineViewModifiedDate, DocumentByLineViewPublishedDate
 
 
-class TestViewlet(BaseTestCase):
+class TestViewletAnonymousPermissions(BaseTestCase):
+    """
+    Same test of test_viewlet.py, but now we add the permissions also to
+    anonymous user
+    """
 
     layer = LAST_MODIFIER_INTEGRATION_TESTING
 
     def setUp(self):
         self.markRequestWithLayer()
         request = self.layer['request']
+        portal = self.layer['portal']
         request.set('ACTUAL_URL', 'http://nohost/plone/document1')
+        for perm in [DocumentByLineViewAuthor,
+                     DocumentByLineViewPublishedDate,
+                     DocumentByLineViewModifiedDate,
+                     DocumentByLineViewLastModifier]:
+
+            portal.manage_permission(perm, roles=["Anonymous",
+                                                  "Authenticated",
+                                                  "Manager",
+                                                  "Site Administrator"])
 
     def test_author(self):
         portal = self.layer['portal']
@@ -39,7 +50,7 @@ class TestViewlet(BaseTestCase):
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         logout()
-        self.assertFalse('documentAuthor' in portal.document1())
+        self.assertTrue('documentAuthor' in portal.document1())
 
     def test_published_date(self):
         portal = self.layer['portal']
@@ -60,7 +71,7 @@ class TestViewlet(BaseTestCase):
         portal.document1.setEffectiveDate(DateTime())
         portal.document1.reindexObject()
         logout()
-        self.assertFalse('documentPublished' in portal.document1())
+        self.assertTrue('documentPublished' in portal.document1())
 
     def test_modified_date(self):
         portal = self.layer['portal']
@@ -79,7 +90,7 @@ class TestViewlet(BaseTestCase):
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         logout()
-        self.assertFalse('documentModified' in portal.document1())
+        self.assertTrue('documentModified' in portal.document1())
 
     def test_same_creator_and_modifier(self):
         portal = self.layer['portal']
@@ -116,6 +127,10 @@ class TestViewlet(BaseTestCase):
                          'http://nohost/%s/author/user1' % portal.getId())
 
     def test_different_creator_and_modifier_anonymous(self):
+        """
+        This test also fails because anonymous user can't access to object's history
+        to get last modifier
+        """
         portal = self.layer['portal']
         request = self.layer['request']
         portal_url = 'http://nohost/%s' % portal.getId()
