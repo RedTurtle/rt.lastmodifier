@@ -20,4 +20,12 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        name="site-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".site.SiteControlPanel"
+        permission="cmf.ManagePortal"
+        layer="..interfaces.ILastModifierLayer"
+        />
+
 </configure>
