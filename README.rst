@@ -23,9 +23,6 @@ Optionally, this new information can be added to the content's view.
 .. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.1-01.png
    :alt: Document byline preview
 
-To enable this you need to access ZMI and change the new ``displayLastModifierInByline`` property for the
-``site_properties`` property sheet, checking it.
-
 Please, note that this will also works for the new-style byline, that can also display the publication
 date (see PLIP `#8699`__):
 
@@ -37,11 +34,19 @@ __ https://dev.plone.org/ticket/8699
 In facts, this can backport the publication date feature to older Plone versions (but this is a side effect of
 the product, not a wanted feature).
 
-When the new byline information is used?
-----------------------------------------
+When the new byline informations are showed?
+--------------------------------------------
+The viewlet handle 4 different infos (author, last modifier, published date, modified date),
+and each info is visible if the user has a specified permission:
 
-* ``displayLastModifierInByline`` must be true.
-* *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
+- ``rt.lastmodifier: documentByLine view author``
+- ``rt.lastmodifier: documentByLine view last modifier``
+- ``rt.lastmodifier: documentByLine view modified date``
+- ``rt.lastmodifier: documentByLine view published date``
+
+To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
+
+By default Anonymous users can't show anything.
 
 Installation
 ============
