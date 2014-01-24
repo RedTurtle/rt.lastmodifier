@@ -10,7 +10,8 @@
   <adapter name="Modifier" factory=".indexer.last_modifier" />
 
   <include package=".browser" />
-
+  <include file="permissions.zcml"/>
   <include file="profiles.zcml" />
+  <include file="upgrades.zcml"/>
 
 </configure>

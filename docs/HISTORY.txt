@@ -4,7 +4,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added new permissions to handle the view of single infos in the viewlet:
+  author, last modifier, publication date and modified date [cekk]
 
 
 0.2 (2013-04-17)

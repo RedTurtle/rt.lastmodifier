@@ -18,6 +18,7 @@ from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
 
 from base import BaseTestCase
 
+
 class TestViewlet(BaseTestCase):
 
     layer = LAST_MODIFIER_INTEGRATION_TESTING

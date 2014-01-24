@@ -9,8 +9,9 @@ from Products.Five.browser import BrowserView
 
 from plone.app.layout.viewlets.content import ContentHistoryViewlet
 
+
 class LastModifierView(BrowserView):
-    
+
     def last_modifier(self):
         history = queryMultiAdapter((self.context, self.request), interface=Interface, name=u"contenthistory")
         if not history and sys.version_info < (2, 6):
@@ -23,4 +24,3 @@ class LastModifierView(BrowserView):
             full_history = history.fullHistory()
             if full_history:
                 return full_history[0].get('actorid') or full_history[0].get('actor').get('username')
-        

@@ -1,0 +1,23 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           i18n_domain="rt.lastmodifier">
+
+  <!-- rt.lastmodifier permissions -->
+  <permission
+    id="rt.lastmodifier.ViewAuthor"
+    title="rt.lastmodifier: documentByLine view author"
+    />
+  <permission
+    id="rt.lastmodifier.ViewLastModifier"
+    title="rt.lastmodifier: documentByLine view last modifier"
+    />
+  <permission
+    id="rt.lastmodifier.ViewModifiedDate"
+    title="rt.lastmodifier: documentByLine view modified date"
+    />
+  <permission
+    id="rt.lastmodifier.ViewPublishedDate"
+    title="rt.lastmodifier: documentByLine view published date"
+    />
+
+</configure>

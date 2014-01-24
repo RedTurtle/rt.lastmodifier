@@ -18,7 +18,7 @@ def addKeyToCatalog(portal):
     indexables = []
 
     WANTED_INDEXES = (('Modifier', 'FieldIndex'),)
-    
+
     for name, meta_type in WANTED_INDEXES:
         if name not in indexes:
             catalog.addIndex(name, meta_type)
@@ -28,19 +28,9 @@ def addKeyToCatalog(portal):
         logger.info("Indexing new index: %s.", ', '.join(indexables))
         catalog.manage_reindexIndex(ids=indexables)
 
-def registerProperties(context):
-    ptool = getToolByName(context, 'portal_properties')
-    props = ptool.site_properties
-    _PROPERTIES = [dict(name='displayLastModifierInByline', type_='boolean', value=False),]
-    
-    for prop in _PROPERTIES:
-        if not props.hasProperty(prop['name']):
-            props.manage_addProperty(prop['name'], prop['value'], prop['type_'])
-            logger.info("Added missing %s property" % prop['name'])
 
 def setupVarious(context):
     if context.readDataFile('rt.lastmodifier_various.txt') is None:
         return
     portal = context.getSite()
-    registerProperties(portal)
     addKeyToCatalog(portal)

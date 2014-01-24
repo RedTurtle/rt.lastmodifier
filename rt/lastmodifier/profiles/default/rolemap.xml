@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="rt.lastmodifier: documentByLine view author"
+                acquire="True">
+      <role name="Authenticated"/>
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="rt.lastmodifier: documentByLine view last modifier"
+                acquire="True">
+      <role name="Authenticated"/>
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="rt.lastmodifier: documentByLine view modified date"
+                acquire="True">
+      <role name="Authenticated"/>
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="rt.lastmodifier: documentByLine view published date"
+                acquire="True">
+      <role name="Authenticated"/>
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+  </permissions>
+</rolemap>

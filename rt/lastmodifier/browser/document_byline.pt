@@ -9,29 +9,30 @@
   </span>
 
   <tal:creator tal:define="creator_short_form view/creator;"
-               tal:condition="creator_short_form">
-  <tal:name tal:define="creator_long_form string:?author=${creator_short_form};
-                        creator_is_openid python:'/' in creator_short_form;
-                        creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];">
-    <span class="documentAuthor">
-      <tal:i18n i18n:translate="label_by_author">
-      by
-      <a href="#"
-         tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
-         tal:content="view/authorname"
-         tal:omit-tag="python:view.author() is None"
-         i18n:name="author">Roland Barthes</a>
-      </tal:i18n>
-         —
-    </span>
-  </tal:name>
+               tal:condition="python:creator_short_form and view.can_see_author">
+    <tal:name tal:define="creator_long_form string:?author=${creator_short_form};
+                          creator_is_openid python:'/' in creator_short_form;
+                          creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];">
+      <span class="documentAuthor">
+        <tal:i18n i18n:translate="label_by_author">
+        by
+        <a href="#"
+           tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+           tal:content="view/authorname"
+           tal:omit-tag="python:view.author() is None"
+           i18n:name="author">Roland Barthes</a>
+        </tal:i18n>
+           —
+      </span>
+    </tal:name>
   </tal:creator>
-
   <tal:dates define="published view/pub_date;
-                     modified context/ModificationDate">
+                     modified context/ModificationDate"
+             condition="python:view.can_see_modified or published or view.can_see_last_modifier">
   <span class="documentPublished"
-        tal:condition="published">
-    <span i18n:translate="box_published">
+        tal:condition="python:published">
+    <span i18n:domain="rt.lastmodifier"
+          i18n:translate="box_published">
       published
     </span>
     <span tal:replace="python:view.toLocalizedTime(published,long_format=1)">
@@ -40,14 +41,15 @@
   </span>
 
   <span class="documentModified"
-        tal:condition="modified">
-    <span i18n:translate="box_last_modified">
-      last modified
-    </span>
-    <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
-      August 16, 2001 at 23:35:59
-    </span>
-
+        tal:condition="python:modified and view.can_see_modified or view.can_see_last_modifier">
+    <tal:modifiedDate condition="python:modified and view.can_see_modified">
+      <span i18n:translate="box_last_modified">
+        last modified
+      </span>
+      <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
+        August 16, 2001 at 23:35:59
+      </span>
+    </tal:modifiedDate>
     <tal:modifier tal:define="modifier_short_form view/last_modifier;"
                   tal:condition="python:view.last_modifier() and view.last_modifier()!=view.creator()">
       <tal:name tal:define="modifier_long_form string:?author=${modifier_short_form};

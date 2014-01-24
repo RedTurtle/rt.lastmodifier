@@ -1,27 +1,38 @@
 # -*- coding: utf-8 -*-
-
 from DateTime import DateTime
-
 from zope.component import getMultiAdapter
 from zope.interface import Interface
-
 from Products.CMFCore.utils import getToolByName
-
 from plone.memoize.view import memoize
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as BaseDocumentBylineViewlet
+from rt.lastmodifier.permissions import DocumentByLineViewAuthor, DocumentByLineViewLastModifier,\
+                                        DocumentByLineViewModifiedDate, DocumentByLineViewPublishedDate
+from AccessControl import getSecurityManager
+
 
 class DocumentBylineViewlet(BaseDocumentBylineViewlet):
+
+    def update(self):
+        super(DocumentBylineViewlet, self).update()
+        sm = getSecurityManager()
+        self.can_see_author = sm.checkPermission(DocumentByLineViewAuthor, self.portal_state.portal())
+        self.can_see_last_modifier = sm.checkPermission(DocumentByLineViewLastModifier, self.portal_state.portal())
+        self.can_see_published = sm.checkPermission(DocumentByLineViewPublishedDate, self.portal_state.portal())
+        self.can_see_modified = sm.checkPermission(DocumentByLineViewModifiedDate, self.portal_state.portal())
+
+    @memoize
+    def show(self):
+        if self.can_see_author or self.can_see_last_modifier or\
+           self.can_see_modified or self.can_see_published:
+            return True
+        return False
 
     def pub_date(self):
         """Taken from recent Plone versions, to let viewlet template working also on old Plone
         """
         # check if we are allowed to display publication date
-        properties = getToolByName(self.context, 'portal_properties')
-        site_properties = getattr(properties, 'site_properties')
-        if not site_properties.getProperty('displayPublicationDateInByline',
-           False):
+        if not self.can_see_published:
             return None
-        
         # check if we have Effective Date set
         date = self.context.EffectiveDate()
         if not date or date == 'None':
@@ -32,12 +43,8 @@ class DocumentBylineViewlet(BaseDocumentBylineViewlet):
     @memoize
     def last_modifier(self):
         # check if we are allowed to display the last modifier
-        properties = getToolByName(self.context, 'portal_properties')
-        site_properties = getattr(properties, 'site_properties')
-        if not site_properties.getProperty('displayLastModifierInByline',
-           False):
+        if not self.can_see_last_modifier:
             return None
-
         view_last_modifier = getMultiAdapter((self.context, self.request),
                                              interface=Interface, name=u"lastmodifier")
         if view_last_modifier:
