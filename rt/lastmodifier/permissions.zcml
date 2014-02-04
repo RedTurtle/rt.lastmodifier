@@ -23,14 +23,10 @@
   <permission zcml:condition="not-have plone-41"
               id="plone.app.controlpanel.Site"
               title="Plone Site Setup: Site">
-    <role name="Manager"/>
-    <role name="Site Administrator"/>
   </permission>
   <permission zcml:condition="not-have plone-41"
               id="plone.app.controlpanel.Security"
               title="Plone Site Setup: Security">
-    <role name="Manager"/>
-    <role name="Site Administrator"/>
   </permission>
 
 
