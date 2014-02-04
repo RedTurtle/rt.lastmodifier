@@ -13,13 +13,13 @@
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
-    <permission name="rt.lastmodifier: documentByLine view modified date"
+    <permission name="rt.lastmodifier: documentByLine view modification date"
                 acquire="True">
       <role name="Authenticated"/>
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
-    <permission name="rt.lastmodifier: documentByLine view published date"
+    <permission name="rt.lastmodifier: documentByLine view publication date"
                 acquire="True">
       <role name="Authenticated"/>
       <role name="Manager"/>

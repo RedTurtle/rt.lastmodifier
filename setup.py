@@ -7,7 +7,8 @@ tests_require = ['plone.app.testing', 'pyquery']
 
 setup(name='rt.lastmodifier',
       version=version,
-      description="Save and show user last modifier information on Plone contents",
+      description="Save and show user last modifier information on Plone contents "
+                  "(and make by-line viewlet fully customizable)",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from

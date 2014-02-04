@@ -7,7 +7,7 @@
       name="default"
       title="rt.lastmodifier"
       directory="profiles/default"
-      description="Save and show last modifier user information on site contents"
+      description="Save and show last modifier user information on site contents (and make by-line viewlet fully customizable)"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <genericsetup:registerProfile

@@ -6,7 +6,11 @@ Changelog
 
 - Added new permissions to handle the view of single infos in the viewlet:
   author, last modifier, publication date and modified date [cekk]
+- fixed bug: last modifier was not shown in Plone 4 to anonymous users
+  (`#1`__)
+  [keul]
 
+__ https://github.com/RedTurtle/rt.lastmodifier/issues/1
 
 0.2 (2013-04-17)
 ----------------

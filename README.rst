@@ -36,17 +36,20 @@ the product, not a wanted feature).
 
 When the new byline informations are showed?
 --------------------------------------------
-The viewlet handle 4 different infos (author, last modifier, published date, modified date),
+
+The viewlet handle 4 different infos (author, last modifier, publication date, modification date),
 and each info is visible if the user has a specified permission:
 
 - ``rt.lastmodifier: documentByLine view author``
 - ``rt.lastmodifier: documentByLine view last modifier``
-- ``rt.lastmodifier: documentByLine view modified date``
-- ``rt.lastmodifier: documentByLine view published date``
+- ``rt.lastmodifier: documentByLine view modification date``
+- ``rt.lastmodifier: documentByLine view publication date``
+
+This will change the Plone default way to handle this, that simply use a single option (the *allow_anon_views_about*).
 
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
-By default Anonymous users can't show anything.
+By default Anonymous users can't see anything.
 
 Installation
 ============

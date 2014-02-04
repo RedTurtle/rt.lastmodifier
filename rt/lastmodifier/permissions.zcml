@@ -12,12 +12,26 @@
     title="rt.lastmodifier: documentByLine view last modifier"
     />
   <permission
-    id="rt.lastmodifier.ViewModifiedDate"
-    title="rt.lastmodifier: documentByLine view modified date"
+    id="rt.lastmodifier.ViewModificationDate"
+    title="rt.lastmodifier: documentByLine view modification date"
     />
   <permission
-    id="rt.lastmodifier.ViewPublishedDate"
-    title="rt.lastmodifier: documentByLine view published date"
+    id="rt.lastmodifier.ViewPublicationDate"
+    title="rt.lastmodifier: documentByLine view publication date"
     />
+
+  <permission zcml:condition="not-have plone-41"
+              id="plone.app.controlpanel.Site"
+              title="Plone Site Setup: Site">
+    <role name="Manager"/>
+    <role name="Site Administrator"/>
+  </permission>
+  <permission zcml:condition="not-have plone-41"
+              id="plone.app.controlpanel.Security"
+              title="Plone Site Setup: Security">
+    <role name="Manager"/>
+    <role name="Site Administrator"/>
+  </permission>
+
 
 </configure>

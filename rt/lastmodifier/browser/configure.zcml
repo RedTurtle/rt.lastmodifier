@@ -20,12 +20,21 @@
         permission="zope2.View"
         />
 
+    <!-- override Plone default, to hide some fields -->
     <browser:page
         name="site-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".site.SiteControlPanel"
-        permission="cmf.ManagePortal"
+        permission="plone.app.controlpanel.Site"
         layer="..interfaces.ILastModifierLayer"
         />
+    <browser:page
+        name="security-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".security.SecurityControlPanel"
+        permission="plone.app.controlpanel.Security"
+        layer="..interfaces.ILastModifierLayer"
+        />
+
 
 </configure>

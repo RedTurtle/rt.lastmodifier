@@ -14,9 +14,9 @@ DocumentByLineViewLastModifier = 'rt.lastmodifier: documentByLine view last modi
 setDefaultRoles(DocumentByLineViewLastModifier, ())
 
 security.declarePublic('DocumentByLineViewModifiedDate')
-DocumentByLineViewModifiedDate = 'rt.lastmodifier: documentByLine view modified date'
+DocumentByLineViewModifiedDate = 'rt.lastmodifier: documentByLine view modification date'
 setDefaultRoles(DocumentByLineViewModifiedDate, ())
 
 security.declarePublic('DocumentByLineViewPublishedDate')
-DocumentByLineViewPublishedDate = 'rt.lastmodifier: documentByLine view published date'
+DocumentByLineViewPublishedDate = 'rt.lastmodifier: documentByLine view publication date'
 setDefaultRoles(DocumentByLineViewPublishedDate, ())

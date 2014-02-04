@@ -17,5 +17,5 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rt.lastmodifier\n"
 
-msgid "Save and show last modifier user information on site contents"
+msgid "Save and show last modifier user information on site contents (and make by-line viewlet fully customizable)"
 msgstr ""
