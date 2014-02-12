@@ -6,7 +6,7 @@ Changelog
 
 - Added new permissions to handle the view of single infos in the viewlet:
   author, last modifier, publication date and modified date [cekk]
-- fixed bug: last modifier was not shown in Plone 4 to anonymous users
+- fixed bug: last modifier was never shown to anonymous users in Plone 4
   (`#1`__)
   [keul]
 

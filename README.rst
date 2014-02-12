@@ -1,5 +1,5 @@
 Enhance the Plone catalog adding an additional information: the **user who performed the last change**.
-Optionally, expand the **document byline** section, showing this information.
+Optionally, expand the **document byline** section, showing this (and other) information.
 
 .. contents:: **Table of contents**
 
@@ -34,22 +34,25 @@ __ https://dev.plone.org/ticket/8699
 In facts, this can backport the publication date feature to older Plone versions (but this is a side effect of
 the product, not a wanted feature).
 
-When the new byline informations are showed?
---------------------------------------------
+Apart publication date, all other by-line elements can now be controlled with a granular security settings.
 
-The viewlet handle 4 different infos (author, last modifier, publication date, modification date),
-and each info is visible if the user has a specified permission:
+When the new byline informations are shown?
+-------------------------------------------
+
+The viewlet handle 4 different informations: *author*, *last modifier*, *publication date* and *modification date*.
+Each info is visible if the user has a specified permission on the context:
 
 - ``rt.lastmodifier: documentByLine view author``
 - ``rt.lastmodifier: documentByLine view last modifier``
 - ``rt.lastmodifier: documentByLine view modification date``
 - ``rt.lastmodifier: documentByLine view publication date``
 
-This will change the Plone default way to handle this, that simply use a single option (the *allow_anon_views_about*).
+This will change the way to handle document byline because commonly Plone simply use a couple of
+site-wide options: the *allow_anon_views_about* and the *displayPublicationDateInByline*.
 
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
-By default Anonymous users can't see anything.
+By default Anonymous users can't see anything (as Plone default).
 
 Installation
 ============
@@ -81,13 +84,19 @@ All Plone versions from 3.3 to 4.3.
 Credits
 =======
 
-Developed with the support of `S. Anna Hospital, Ferrara`__;
-S. Anna Hospital supports the `PloneGov initiative`__.
+Developed with the support of:
 
-.. image:: http://www.ospfe.it/ospfe-logo.jpg 
-   :alt: S. Anna Hospital logo
+* `S. Anna Hospital, Ferrara`__
+  
+  .. image:: http://www.ospfe.it/ospfe-logo.jpg 
+     :alt: S. Anna Hospital logo
+  
+* `Camera di Commercio di Ferrara`__
+
+All of them supports the `PloneGov initiative`__.
 
 __ http://www.ospfe.it/
+__ http://www.fe.camcom.it/
 __ http://www.plonegov.it/
 
 Authors
