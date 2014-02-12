@@ -142,4 +142,4 @@ class TestViewletAnonymousPermissions(BaseTestCase):
         portal.document1.reindexObject()
         logout()
         pq = PyQuery(portal.document1())
-        self.assertFalse('documentModifier' in portal.document1())
+        self.assertEqual(len(pq(".documentModifier")), 1)
