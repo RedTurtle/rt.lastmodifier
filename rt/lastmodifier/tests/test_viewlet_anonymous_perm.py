@@ -29,7 +29,7 @@ class TestViewletAnonymousPermissions(BaseTestCase):
                      DocumentByLineViewLastModifier]:
 
             portal.manage_permission(perm, roles=["Anonymous",
-                                                  "Authenticated",
+                                                  "Member",
                                                   "Manager",
                                                   "Site Administrator"])
 

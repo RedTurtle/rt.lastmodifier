@@ -1,17 +1,18 @@
 Changelog
 =========
 
-0.4 (unreleased)
-----------------
+0.3.1 (unreleased)
+------------------
 
-- Nothing changed yet.
-
+- Fixed default roles: do not use ``Authenticated`` but ``Member``
+  [keul]
 
 0.3 (2014-02-12)
 ----------------
 
 - Added new permissions to handle the view of single infos in the viewlet:
-  author, last modifier, publication date and modified date [cekk]
+  author, last modifier, publication date and modified date
+  [cekk]
 - fixed bug: last modifier was never shown to anonymous users in Plone 4
   (`#1`__)
   [keul]

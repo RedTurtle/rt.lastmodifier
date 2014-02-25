@@ -4,12 +4,21 @@
     i18n_domain="rt.lastmodifier">
        
   <!-- Upgrade steps -->
+
   <gs:upgradeStep
         title="Upgrade rt.lastmodifier 0.3"
-        description="rer.sitesearch upgrade step"
+        description="rer.sitesearch upgrade step to 0.3"
         source="1000"
         destination="1001"
         handler=".upgrades.to_1001"
+        profile="rt.lastmodifier:default" />
+
+  <gs:upgradeStep
+        title="Upgrade rt.lastmodifier 0.3.1"
+        description="rer.sitesearch upgrade step to 0.3.1"
+        source="1001"
+        destination="1010"
+        handler=".upgrades.to_1010"
         profile="rt.lastmodifier:default" />
 
 </configure>
