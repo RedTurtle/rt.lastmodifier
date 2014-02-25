@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.1 (unreleased)
+0.3.1 (2014-02-25)
 ------------------
 
 - Fixed default roles: do not use ``Authenticated`` but ``Member``
