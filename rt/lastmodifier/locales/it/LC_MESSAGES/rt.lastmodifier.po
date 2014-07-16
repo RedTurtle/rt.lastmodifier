@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-04 15:48+0000\n"
+"POT-Creation-Date: 2014-07-16 14:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -24,21 +24,38 @@ msgid "Modifier"
 msgstr "Ultimo a modificare"
 
 msgid "Save and show last modifier user information on site contents (and make by-line viewlet fully customizable)"
-msgstr ""
-"Salva e mostra le informazioni sull'ultimo utente che ha eseguito modifiche "
-"(e rende la by-line viewlet completamente pesronalizzabile)"
+msgstr "Salva e mostra le informazioni sull'ultimo utente che ha eseguito modifiche (e rende la by-line viewlet completamente pesronalizzabile)"
+
+#: ../browser/versioning_edit.pt:115
+msgid "Show the changes note in document info"
+msgstr "Mostra commento nelle informazioni del documento"
 
 #: ../profiles/new-collection/registry.xml
 msgid "The last person that modified an item"
 msgstr "L'ultima persona che ha modifica un documento"
 
 #. Default: "published"
-#: ../browser/document_byline.pt:34
+#: ../browser/document_byline.pt:35
 msgid "box_published"
 msgstr "pubblicato il"
 
 #. Default: "by ${modifier}"
-#: ../browser/document_byline.pt:61
+#: ../browser/document_byline.pt:62
 msgid "label_by_modifier"
 msgstr "da ${modifier}"
+
+#. Default: "Last change: ${changenote}"
+#: ../browser/document_byline.pt:76
+msgid "last_done_change"
+msgstr "Ultima modifica effetuata: ${changenote}"
+
+#. Default: "Last info shown is: ${changenote}"
+#: ../browser/versioning_edit.pt:126
+msgid "last_shown_info"
+msgstr "L'ultima informazione mostrata è: ${changenote}"
+
+#. Default: "If checked, the change info given above will be show in the document information section."
+#: ../browser/versioning_edit.pt:119
+msgid "lastchange_help"
+msgstr "Se selezionato, il commento alle modifiche fornito sopra verrà mostrato nelle sezione delle informazioni del documento."
 

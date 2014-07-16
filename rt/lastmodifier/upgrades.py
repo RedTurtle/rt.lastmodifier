@@ -23,3 +23,7 @@ def to_1010(context):
     context.runImportStepFromProfile(default_profile, 'rolemap')
     cleanPortalProperties(context)
     logger.info('Upgraded to version 0.3.1')
+
+def to_1100(context):
+    context.runAllImportStepsFromProfile('profile-rt.lastmodifier:to_1100')
+    logger.info('Upgraded to version 0.4')

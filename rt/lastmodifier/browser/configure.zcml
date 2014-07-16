@@ -1,5 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="rt.lastmodifier">
 
@@ -18,6 +19,17 @@
         class=".document_byline.DocumentBylineViewlet"
 		template="document_byline.pt"
         permission="zope2.View"
+        />
+
+    <browser:viewlet
+	    zcml:condition="installed Products.CMFEditions"
+		for="Products.ATContentTypes.interfaces.IATContentType"
+        name="cmfeditions.versioningfields"
+        manager="Products.Archetypes.interfaces.IEditAfterFieldsets"
+        class=".changenote.ShowChangeNoteViewlet"
+        template="versioning_edit.pt"
+		layer="..interfaces.ILastModifierLayer"
+        permission="cmf.ModifyPortalContent"
         />
 
     <!-- override Plone default, to hide some fields -->

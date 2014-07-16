@@ -39,13 +39,15 @@ Apart publication date, all other by-line elements can now be controlled with a 
 When the new byline informations are shown?
 -------------------------------------------
 
-The viewlet handle 4 different informations: *author*, *last modifier*, *publication date* and *modification date*.
+The viewlet handle many different informations: *author*, *last modifier*, *publication date*, *modification date*
+and *last versioning change note* (is versioning is enabled on the content).
 Each info is visible if the user has a specified permission on the context:
 
 - ``rt.lastmodifier: documentByLine view author``
 - ``rt.lastmodifier: documentByLine view last modifier``
 - ``rt.lastmodifier: documentByLine view modification date``
 - ``rt.lastmodifier: documentByLine view publication date``
+- ``rt.lastmodifier: documentByLine view change note``
 
 This will change the way to handle document byline because commonly Plone simply use a couple of
 site-wide options: the *allow_anon_views_about* and the *displayPublicationDateInByline*.
@@ -53,6 +55,15 @@ site-wide options: the *allow_anon_views_about* and the *displayPublicationDateI
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
 By default Anonymous users can't see anything (as Plone default).
+
+Show change notes
+-----------------
+
+This feature will show the change comment you commonly see in default Plone contents.
+The editor must explicitly choose if a change note must be putted in the byline section by selecting
+the "*Show the changes note in document info*" checkbox.
+This will store *that* change note to be shown in the content, that means that additional changes without
+checking the option will not update that information.
 
 Installation
 ============

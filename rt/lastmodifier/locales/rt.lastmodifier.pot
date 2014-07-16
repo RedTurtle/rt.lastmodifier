@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-04 15:48+0000\n"
+"POT-Creation-Date: 2014-07-16 14:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,17 +25,36 @@ msgstr ""
 msgid "Save and show last modifier user information on site contents (and make by-line viewlet fully customizable)"
 msgstr ""
 
+#: ../browser/versioning_edit.pt:115
+msgid "Show the changes note in document info"
+msgstr ""
+
 #: ../profiles/new-collection/registry.xml
 msgid "The last person that modified an item"
 msgstr ""
 
 #. Default: "published"
-#: ../browser/document_byline.pt:34
+#: ../browser/document_byline.pt:35
 msgid "box_published"
 msgstr ""
 
 #. Default: "by ${modifier}"
-#: ../browser/document_byline.pt:61
+#: ../browser/document_byline.pt:62
 msgid "label_by_modifier"
+msgstr ""
+
+#. Default: "Last change: ${changenote}"
+#: ../browser/document_byline.pt:76
+msgid "last_done_change"
+msgstr ""
+
+#. Default: "Last info shown is: ${changenote}"
+#: ../browser/versioning_edit.pt:126
+msgid "last_shown_info"
+msgstr ""
+
+#. Default: "If checked, the change info given above will be show in the document information section."
+#: ../browser/versioning_edit.pt:119
+msgid "lastchange_help"
 msgstr ""
 

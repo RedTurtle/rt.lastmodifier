@@ -4,8 +4,9 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- New feature for showing the last change note on versionable contents.
+  User must explicitly mark the change has "showable"
+  [keul]
 
 0.3.1 (2014-02-25)
 ------------------

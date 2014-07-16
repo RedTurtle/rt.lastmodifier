@@ -33,6 +33,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="to_1100"
+      title="rt.lastmodifier: migrate to 1100"
+      directory="profiles/to_1100"
+      description="Migrate to version 0.4"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
   <genericsetup:importStep
       name="rt.lastmodifier.various"

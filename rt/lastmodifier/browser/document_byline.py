@@ -5,12 +5,14 @@ from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.view import memoize
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as BaseDocumentBylineViewlet
-from rt.lastmodifier.permissions import DocumentByLineViewAuthor, DocumentByLineViewLastModifier,\
-                                        DocumentByLineViewModifiedDate, DocumentByLineViewPublishedDate
+from rt.lastmodifier.permissions import DocumentByLineViewAuthor, DocumentByLineViewLastModifier, \
+                                        DocumentByLineViewModifiedDate, DocumentByLineViewPublishedDate, \
+                                        DocumentByLineViewChangeNote
+from rt.lastmodifier.browser.changenote import ShowChangeNoteViewlet
 from AccessControl import getSecurityManager
 
 
-class DocumentBylineViewlet(BaseDocumentBylineViewlet):
+class DocumentBylineViewlet(BaseDocumentBylineViewlet, ShowChangeNoteViewlet):
 
     def update(self):
         super(DocumentBylineViewlet, self).update()
@@ -19,6 +21,7 @@ class DocumentBylineViewlet(BaseDocumentBylineViewlet):
         self.can_see_last_modifier = sm.checkPermission(DocumentByLineViewLastModifier, self.portal_state.portal())
         self.can_see_published = sm.checkPermission(DocumentByLineViewPublishedDate, self.portal_state.portal())
         self.can_see_modified = sm.checkPermission(DocumentByLineViewModifiedDate, self.portal_state.portal())
+        self.can_see_change_note = sm.checkPermission(DocumentByLineViewChangeNote, self.portal_state.portal())
 
     @memoize
     def show(self):

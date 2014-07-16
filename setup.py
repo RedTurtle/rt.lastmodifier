@@ -36,6 +36,7 @@ setup(name='rt.lastmodifier',
       install_requires=[
           'setuptools',
           'plone.indexer',
+          'archetypes.schemaextender',
       ],
       entry_points="""
       [z3c.autoinclude.plugin]

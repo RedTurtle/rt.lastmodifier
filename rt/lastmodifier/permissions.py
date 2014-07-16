@@ -20,3 +20,11 @@ setDefaultRoles(DocumentByLineViewModifiedDate, ())
 security.declarePublic('DocumentByLineViewPublishedDate')
 DocumentByLineViewPublishedDate = 'rt.lastmodifier: documentByLine view publication date'
 setDefaultRoles(DocumentByLineViewPublishedDate, ())
+
+security.declarePublic('DocumentByLineViewPublishedDate')
+DocumentByLineViewChangeNote = 'rt.lastmodifier: documentByLine view change note'
+setDefaultRoles(DocumentByLineViewChangeNote, ())
+
+security.declarePublic('DocumentByLineViewPublishedDate')
+EditChangeNoteShowState = 'rt.lastmodifier: choose to show change note'
+setDefaultRoles(EditChangeNoteShowState, ())

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="rt.lastmodifier: documentByLine view change note"
+                acquire="False">
+      <role name="Member"/>
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="rt.lastmodifier: choose to show change note"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Editor"/>
+    </permission>
+  </permissions>
+</rolemap>

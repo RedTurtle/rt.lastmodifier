@@ -1,0 +1,133 @@
+<tal:block xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+           xmlns:tal="http://xml.zope.org/namespaces/tal"
+           i18n:domain="plone"
+            tal:define="pr nocall:here/portal_repository|nothing;
+                        isVersionable python:pr is not None and pr.isVersionable(context) or None;
+                        supportsAutoVersion python:pr is not None and pr.supportsPolicy(context, 'at_edit_autoversion') or None">
+    <script type="text/javascript"
+            tal:condition="python:isVersionable and not supportsAutoVersion">
+    <!--
+    function switchComment(ev) {
+        var save_version = document.getElementById('cmfeditions_save_new_version');
+        var comment = document.getElementById('cmfeditions_version_comment_block');
+        if (save_version && comment) {
+            if (save_version.checked) {
+                comment.style.display = 'block';
+            } else {
+                comment.style.display = 'none';
+            }
+        }
+    }
+
+    function setupSaveNewVersion(ev) {
+        var save_version = document.getElementById('cmfeditions_save_new_version');
+        var comment = document.getElementById('cmfeditions_version_comment_block');
+
+        if (save_version && comment) {
+            if (save_version.checked) {
+                comment.style.display = 'block';
+            } else {
+                comment.style.display = 'none';
+            }
+        }
+        registerEventListener(save_version, "click", switchComment);
+    }
+    registerPloneFunction(setupSaveNewVersion);
+    -->
+    </script>
+
+    <div i18n:domain="cmfeditions"
+         class="field editionSaveVersion"
+         tal:condition="python: isVersionable and not supportsAutoVersion">
+
+        <input type="checkbox"
+               name="cmfeditions_save_new_version"
+               id="cmfeditions_save_new_version" />
+        <label for="cmfeditions_save_new_version"
+               i18n:translate="label_save_new_version">Save as new version</label>
+
+         <div class="formHelp"
+              id="cmfeditions_save_new_version_help"
+              i18n:translate="help_save_new_version">
+              Select to make a version of the current content.
+         </div>
+    </div>
+
+    <div i18n:domain="cmfeditions"
+         class="field editionComment"
+         id="cmfeditions_version_comment_block"
+         tal:condition="python: isVersionable">
+
+        <label for="cmfeditions_version_comment"
+               i18n:translate="label_version_comment">Change note</label>
+        <div class="formHelp"
+             id="cmfeditions_version_comment_help"
+             i18n:translate="help_version_comment">
+            Enter a comment that describes the changes you made.
+        </div>
+
+        <input type="text"
+               name="cmfeditions_version_comment"
+               id="cmfeditions_version_comment"
+               size="40"
+               tal:attributes="value request/form/cmfeditions_version_comment | nothing"
+               />
+			   
+    </div>
+
+    <script type="text/javascript">
+    <!--
+	
+	(function($) {
+		$(document).ready(function() {
+		
+			$('form[name=edit_form]').submit(function() {
+				var showLastChangeInfo = $('#showLastChangeInfo'),
+				    cmfeditions_version_comment = $('#cmfeditions_version_comment');
+				
+				if (showLastChangeInfo.is(':checked')) {
+					// cleanup bebore (for handle back browser buttons
+					$('#hidden_cmfeditions_version_comment').remove();
+					// copy data in the new hiddenfield
+					hidden_cmfeditions_version_comment = $('<input type="hidden" name="hidden_cmfeditions_version_comment" value="" />');
+					hidden_cmfeditions_version_comment.val(cmfeditions_version_comment.val());
+					cmfeditions_version_comment.after(hidden_cmfeditions_version_comment);
+				}
+				
+			});
+		
+		});
+	})(jQuery);
+	
+	//-->
+	</script>
+
+    <div i18n:domain="rt.lastmodifier"
+         class="field editionComment"
+         id="show_lastchange"
+         tal:condition="python: isVersionable and view.can_change_change_note_show_state()">
+
+        <input type="checkbox"
+               name="showLastChangeInfo"
+               id="showLastChangeInfo"
+               tal:attributes="checked python:request.form.get('showLastChangeInfo') and True or nothing"
+               />
+        <label for="showLastChangeInfo"
+               i18n:translate="">Show the changes note in document info</label>
+        <div class="formHelp"
+             id="show_lastchange_help">
+            <span i18n:translate="lastchange_help"
+			      tal:omit-tag="">
+			      If checked, the change info given above will be show in
+				  the document information section.</span>
+            <span i18n:translate="last_shown_info"
+			      tal:condition="view/changenote"
+			      tal:omit-tag="">Last info shown is:
+				  <em tal:content="view/changenote"
+				      i18n:name="changenote"/></span>
+        </div>
+
+    </div>
+
+
+</tal:block>

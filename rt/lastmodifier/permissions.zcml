@@ -19,6 +19,14 @@
     id="rt.lastmodifier.ViewPublicationDate"
     title="rt.lastmodifier: documentByLine view publication date"
     />
+  <permission
+    id="rt.lastmodifier.ViewChangeNote"
+    title="rt.lastmodifier: documentByLine view change note"
+    />
+  <permission
+    id="rt.lastmodifier.EditChangeNoteShowState"
+    title="rt.lastmodifier: choose to show change note"
+    />
 
   <permission zcml:condition="not-have plone-41"
               id="plone.app.controlpanel.Site"

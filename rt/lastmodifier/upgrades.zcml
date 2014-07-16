@@ -21,4 +21,13 @@
         handler=".upgrades.to_1010"
         profile="rt.lastmodifier:default" />
 
+  <gs:upgradeStep
+        title="Upgrade rt.lastmodifier 0.4"
+        description="rer.sitesearch upgrade step to 0.4"
+        source="1010"
+        destination="1100"
+        handler=".upgrades.to_1100"
+        profile="rt.lastmodifier:default" />
+
+
 </configure>

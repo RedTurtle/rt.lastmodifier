@@ -7,7 +7,13 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
+  <include package="archetypes.schemaextender" />
+
   <adapter name="Modifier" factory=".indexer.last_modifier" />
+
+  <adapter name="history_in_doc_info"
+           factory=".extender.HistoryDocInfoExtender"
+           provides="archetypes.schemaextender.interfaces.ISchemaExtender" />
 
   <include file="permissions.zcml"/>
 
