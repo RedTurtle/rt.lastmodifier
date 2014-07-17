@@ -59,25 +59,25 @@
          <span class="documentModifier">
             <tal:i18n i18n:domain="rt.lastmodifier" i18n:translate="label_by_modifier">
               by
-		      <a href="#"
-		         tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${modifier_id}"
-		         tal:content="view/modifiername"
-		         tal:omit-tag="python:view.modifier() is None"
-		         i18n:name="modifier">Johnny Five</a>
-		      </tal:i18n>
-	     </span>
-	  </tal:name>
+              <a href="#"
+                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${modifier_id}"
+                 tal:content="view/modifiername"
+                 tal:omit-tag="python:view.modifier() is None"
+                 i18n:name="modifier">Johnny Five</a>
+              </tal:i18n>
+         </span>
+      </tal:name>
     </tal:modifier>
-	<tal:modification-notes tal:define="changenote view/changenote"
-	                        tal:condition="python:changenote and view.can_see_change_note">
+    <tal:modification-notes tal:define="changenote view/changenote"
+                            tal:condition="python:changenote and view.can_see_change_note">
         —
-		<tal:lastchange i18n:domain="rt.lastmodifier" i18n:translate="last_done_change">
-			Last change:
-			<em class="documentModifierChanges" i18n:name="changenote">
-				<span tal:replace="changenote" />
-			</em>
-		</tal:lastchange>
-	</tal:modification-notes>
+        <tal:lastchange i18n:domain="rt.lastmodifier" i18n:translate="last_done_change">
+            Last change:
+            <em class="documentModifierChanges" i18n:name="changenote">
+                <span tal:replace="changenote" />
+            </em>
+        </tal:lastchange>
+    </tal:modification-notes>
 
   </span>
   </tal:dates>

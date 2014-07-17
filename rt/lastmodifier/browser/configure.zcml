@@ -9,41 +9,28 @@
         for="*"
         class=".lastmodifier.LastModifierView"
         permission="zope2.View"
-		layer="..interfaces.ILastModifierLayer"
+        layer="..interfaces.ILastModifierLayer"
         />
 
     <browser:viewlet
         name="plone.belowcontenttitle.documentbyline"
-		layer="..interfaces.ILastModifierLayer"
+        layer="..interfaces.ILastModifierLayer"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".document_byline.DocumentBylineViewlet"
-		template="document_byline.pt"
+        template="document_byline.pt"
         permission="zope2.View"
         />
 
-    <configure zcml:condition="installed Products.CMFEditions">
-	    <browser:viewlet
-		    zcml:condition="have plone-4"
-			for="Products.ATContentTypes.interfaces.IATContentType"
-	        name="cmfeditions.versioningfields"
-	        manager="Products.Archetypes.interfaces.IEditAfterFieldsets"
-	        class=".changenote.ShowChangeNoteViewlet"
-	        template="versioning_edit.pt"
-			layer="..interfaces.ILastModifierLayer"
-	        permission="cmf.ModifyPortalContent"
-	        />
-	    <browser:viewlet
-            zcml:condition="not-have plone-4"
-			for="Products.ATContentTypes.interface.IATContentType"
-	        name="cmfeditions.versioningfields"
-	        manager="Products.Archetypes.interfaces.IEditAfterFieldsets"
-	        class=".changenote.ShowChangeNoteViewlet"
-	        template="versioning_edit.pt"
-			layer="..interfaces.ILastModifierLayer"
-	        permission="cmf.ModifyPortalContent"
-	        />
-	</configure>
-
+    <browser:viewlet
+        zcml:condition="installed Products.CMFEditions"
+        for="Products.CMFEditions.interfaces.IVersioned"
+        name="cmfeditions.versioningfields"
+        manager="Products.Archetypes.interfaces.IEditAfterFieldsets"
+        class=".changenote.ShowChangeNoteViewlet"
+        template="versioning_edit.pt"
+        layer="..interfaces.ILastModifierLayer"
+        permission="cmf.ModifyPortalContent"
+        />
 
     <!-- override Plone default, to hide some fields -->
     <browser:page

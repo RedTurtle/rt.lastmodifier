@@ -6,9 +6,9 @@ try:
 except ImportError:
     QS = False
 
+from rt.lastmodifier import logger
 from zExceptions import BadRequest
 
-from rt.lastmodifier import logger
 
 def _removeProperty(portal):
     try:

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
 from zope.interface import implements
 from zope.component import adapts
 from zope.component import queryUtility
@@ -13,11 +12,7 @@ from rt.lastmodifier import _
 from rt.lastmodifier import permissions
 from rt.lastmodifier.interfaces import ILastModifierLayer
 from Products.CMFEditions import CMFEditionsMessageFactory as cmfe
-
-if sys.version_info < (2, 6):
-    from Products.ATContentTypes.interface import IATContentType
-else:
-    from Products.ATContentTypes.interfaces import IATContentType
+from Products.CMFEditions.interfaces import IVersioned
 
 
 class ExtensionTextField(ExtensionField, atapi.TextField):
@@ -28,7 +23,7 @@ class ExtensionBoolField(ExtensionField, atapi.BooleanField):
 
 
 class HistoryDocInfoExtender(object):
-    adapts(IATContentType)
+    adapts(IVersioned)
     implements(IBrowserLayerAwareExtender)
 
     layer = ILastModifierLayer

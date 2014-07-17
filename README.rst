@@ -1,5 +1,5 @@
 Enhance the Plone catalog adding an additional information: the **user who performed the last change**.
-Optionally, expand the **document byline** section, showing this (and other) information.
+Optionally, expand the **document byline** section, showing this (and other) informations.
 
 .. contents:: **Table of contents**
 
@@ -34,7 +34,7 @@ __ https://dev.plone.org/ticket/8699
 In facts, this can backport the publication date feature to older Plone versions (but this is a side effect of
 the product, not a wanted feature).
 
-Apart publication date, all other by-line elements can now be controlled with a granular security settings.
+Publication date apart, all those by-line elements can now be controlled with a granular security settings.
 
 When the new byline informations are shown?
 -------------------------------------------
@@ -54,7 +54,8 @@ site-wide options: the *allow_anon_views_about* and the *displayPublicationDateI
 
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
-By default Anonymous users can't see anything (as Plone default).
+By default Anonymous users can't see anything (this will reproduce the Plone default behavior, where Anonymous
+can't see the byline section by default).
 
 Show change notes
 -----------------
@@ -64,6 +65,8 @@ The editor must explicitly choose if a change note must be putted in the byline 
 the "*Show the changes note in document info*" checkbox.
 This will store *that* change note to be shown in the content, that means that additional changes without
 checking the option will not update that information.
+
+**Note**: this feature require JavaScript to work properly.
 
 Installation
 ============

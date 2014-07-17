@@ -72,35 +72,35 @@
                size="40"
                tal:attributes="value request/form/cmfeditions_version_comment | nothing"
                />
-			   
+               
     </div>
 
     <script type="text/javascript">
     <!--
-	
-	(function($) {
-		$(document).ready(function() {
-		
-			$('form[name=edit_form]').submit(function() {
-				var showLastChangeInfo = $('#showLastChangeInfo'),
-				    cmfeditions_version_comment = $('#cmfeditions_version_comment');
-				
-				if (showLastChangeInfo.is(':checked')) {
-					// cleanup bebore (for handle back browser buttons)
-					$('#hidden_cmfeditions_version_comment').remove();
-					// copy data in the new hiddenfield
-					hidden_cmfeditions_version_comment = $('<input type="hidden" name="hidden_cmfeditions_version_comment" value="" />');
-					hidden_cmfeditions_version_comment.val(cmfeditions_version_comment.val());
-					cmfeditions_version_comment.after(hidden_cmfeditions_version_comment);
-				}
-				
-			});
-		
-		});
-	})(jQuery);
-	
-	//-->
-	</script>
+    
+    (function($) {
+        $(document).ready(function() {
+        
+            $('form[name=edit_form]').submit(function() {
+                var showLastChangeInfo = $('#showLastChangeInfo'),
+                    cmfeditions_version_comment = $('#cmfeditions_version_comment');
+                
+                if (showLastChangeInfo.is(':checked')) {
+                    // cleanup bebore (for handle back browser buttons)
+                    $('#hidden_cmfeditions_version_comment').remove();
+                    // copy data in the new hiddenfield
+                    hidden_cmfeditions_version_comment = $('<input type="hidden" name="hidden_cmfeditions_version_comment" value="" />');
+                    hidden_cmfeditions_version_comment.val(cmfeditions_version_comment.val());
+                    cmfeditions_version_comment.after(hidden_cmfeditions_version_comment);
+                }
+                
+            });
+        
+        });
+    })(jQuery);
+    
+    //-->
+    </script>
 
     <div i18n:domain="rt.lastmodifier"
          class="field editionComment"
@@ -117,14 +117,14 @@
         <div class="formHelp"
              id="show_lastchange_help">
             <span i18n:translate="lastchange_help"
-			      tal:omit-tag="">
-			      If checked, the change info given above will be show in
-				  the document information section.</span>
+                  tal:omit-tag="">
+                  If checked, the change info given above will be show in
+                  the document information section.</span>
             <span i18n:translate="last_shown_info"
-			      tal:condition="view/changenote"
-			      tal:omit-tag="">Last info shown is:
-				  <em tal:content="view/changenote"
-				      i18n:name="changenote"/></span>
+                  tal:condition="view/changenote"
+                  tal:omit-tag="">Last info shown is:
+                  <em tal:content="view/changenote"
+                      i18n:name="changenote"/></span>
         </div>
 
     </div>
