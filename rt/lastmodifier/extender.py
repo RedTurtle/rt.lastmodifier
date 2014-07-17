@@ -2,13 +2,9 @@
 
 from zope.interface import implements
 from zope.component import adapts
-from zope.component import queryUtility
-from plone.memoize.instance import memoize
 from Products.Archetypes import atapi
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.field import ExtensionField
-from rt.lastmodifier import _
 from rt.lastmodifier import permissions
 from rt.lastmodifier.interfaces import ILastModifierLayer
 from Products.CMFEditions import CMFEditionsMessageFactory as cmfe

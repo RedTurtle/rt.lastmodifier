@@ -35,7 +35,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_author(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -44,7 +43,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_author_anonymous(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -54,7 +52,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_published_date(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -64,7 +61,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_published_date_anonymous(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -75,7 +71,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_modified_date(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -84,7 +79,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_modified_date_anonymous(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -94,7 +88,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_same_creator_and_modifier(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -103,7 +96,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_same_creator_and_modifier_anonymous(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -113,7 +105,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
 
     def test_different_creator_and_modifier(self):
         portal = self.layer['portal']
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         logout()
@@ -132,8 +123,6 @@ class TestViewletAnonymousPermissions(BaseTestCase):
         to get last modifier
         """
         portal = self.layer['portal']
-        request = self.layer['request']
-        portal_url = 'http://nohost/%s' % portal.getId()
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
         logout()

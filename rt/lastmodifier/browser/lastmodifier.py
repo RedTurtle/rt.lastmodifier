@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
-from zope.interface import Interface
-from zope.component import queryMultiAdapter
+from AccessControl.SecurityManagement import newSecurityManager, setSecurityManager, getSecurityManager
+from AccessControl.User import UnrestrictedUser
 from Products.Five.browser import BrowserView
 from plone.app.layout.viewlets.content import ContentHistoryViewlet
-from AccessControl.User import SimpleUser, UnrestrictedUser
-from AccessControl.SecurityManagement import newSecurityManager, setSecurityManager, getSecurityManager
-from Products.CMFCore.utils import getToolByName
+from zope.component import queryMultiAdapter
+from zope.interface import Interface
 
 
 class UnrestrictedUser(UnrestrictedUser):
@@ -27,7 +25,6 @@ class LastModifierView(BrowserView):
 
         # Security is in the iew definition. Here we act as an omnipotent user
         old_sm = getSecurityManager()
-        acl_users = getToolByName(self.context, 'acl_users')
         tmp_user = UnrestrictedUser(old_sm.getUser().getId() or '', '', ['Manager'], '')
         newSecurityManager(None, tmp_user)
         

@@ -1,20 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import zope.event
-
-from zope.component import getMultiAdapter
-
+from Products.Archetypes.event import ObjectEditedEvent
+from base import BaseTestCase
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import logout
-from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import TEST_USER_ID
-
-from Products.Archetypes.interfaces import IObjectEditedEvent
-from Products.Archetypes.event import ObjectEditedEvent
-
 from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
 
-from base import BaseTestCase
 
 class TestCatalogIntegration(BaseTestCase):
 
