@@ -86,7 +86,7 @@
 				    cmfeditions_version_comment = $('#cmfeditions_version_comment');
 				
 				if (showLastChangeInfo.is(':checked')) {
-					// cleanup bebore (for handle back browser buttons
+					// cleanup bebore (for handle back browser buttons)
 					$('#hidden_cmfeditions_version_comment').remove();
 					// copy data in the new hiddenfield
 					hidden_cmfeditions_version_comment = $('<input type="hidden" name="hidden_cmfeditions_version_comment" value="" />');
