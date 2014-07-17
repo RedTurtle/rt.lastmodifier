@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4 (unreleased)
+0.4 (2014-07-17)
 ----------------
 
 - New feature for showing the last change note on versionable contents.
