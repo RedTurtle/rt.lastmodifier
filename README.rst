@@ -91,6 +91,9 @@ Developed with the support of:
      :alt: S. Anna Hospital logo
   
 * `Camera di Commercio di Ferrara`__
+  
+  .. image:: http://www.fe.camcom.it/cciaa-logo.png/
+     :alt: CCIAA Ferrara - logo
 
 All of them supports the `PloneGov initiative`__.
 
