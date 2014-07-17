@@ -1,56 +1,36 @@
-Enhance the Plone catalog adding an additional information: the **user who performed the last change**.
-Optionally, expand the **document byline** section, showing this (and other) informations.
+Enhance the Plone adding an additional information on document view: the **user who performed the last change** and
+the **change note**.
+Optionally expands the **document byline** section showing those informations.
 
 .. contents:: **Table of contents**
 
 Documentation
 =============
 
-Catalog changes
----------------
+Plone already handle lot of infos in the document byline section, like the document author, the modification date
+and the publication date.
 
-After installing this product, the catalog of your Plone site will be populated with a new index and a metadata
-column: the ``Modifier``.
-This will be the last user who performed a content change (both editing review state change).
+In the same way new data added by this add-on will be added to the byline section.
 
-Other products can start using this index for performing special searches.
-
-Expand the document byline section
-----------------------------------
-
-Optionally, this new information can be added to the content's view.
-
-.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.1-01.png
-   :alt: Document byline preview
-
-Please, note that this will also works for the new-style byline, that can also display the publication
-date (see PLIP `#8699`__):
-
-__ https://dev.plone.org/ticket/8699
-
-.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.1-02.png
+.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.4-01.png
    :alt: Document byline preview in the Plone 4.3 style
-
-In facts, this can backport the publication date feature to older Plone versions (but this is a side effect of
-the product, not a wanted feature).
-
-Publication date apart, all those by-line elements can now be controlled with a granular security settings.
 
 When the new byline informations are shown?
 -------------------------------------------
 
-The viewlet handle many different informations: *author*, *last modifier*, *publication date*, *modification date*
-and *last versioning change note* (is versioning is enabled on the content).
-Each info is visible if the user has a specified permission on the context:
+New infos apart, all byline elements can now be controlled with a **granular security configuration**.
+This will change the way to handle document byline because commonly Plone simply use a couple of
+site-wide options: the *allow_anon_views_about* and the *displayPublicationDateInByline*.
+
+The viewlet will now handle many different informations: *author*, *last modifier*, *publication date*, *modification date*
+and *last versioning change note* (if versioning is enabled on the content).
+Each information is visible if the user has a specified permission:
 
 - ``rt.lastmodifier: documentByLine view author``
 - ``rt.lastmodifier: documentByLine view last modifier``
 - ``rt.lastmodifier: documentByLine view modification date``
 - ``rt.lastmodifier: documentByLine view publication date``
 - ``rt.lastmodifier: documentByLine view change note``
-
-This will change the way to handle document byline because commonly Plone simply use a couple of
-site-wide options: the *allow_anon_views_about* and the *displayPublicationDateInByline*.
 
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
@@ -60,20 +40,25 @@ can't see the byline section by default).
 Show change notes
 -----------------
 
-This feature will show the change comment you commonly see in default Plone contents.
+This feature will show the comment to changes you did, that commonly are kept in the history section.
+
 The editor must explicitly choose if a change note must be putted in the byline section by selecting
 the "*Show the changes note in document info*" checkbox.
 This will store *that* change note to be shown in the content, that means that additional changes without
 checking the option will not update that information.
+
+.. image:: http://blog.redturtle.it/pypi-images/rt.lastmodifier/rt.lastmodifier-0.4-02.png
+   :alt: New change note section
+
+To *delete* the change note shown you must edit a document, provide an empty note while keeping the check
+selected.
 
 **Note**: this feature require JavaScript to work properly.
 
 Installation
 ============
 
-Add ``rt.lastmodifier`` to your buildout:
-
-.. code-block:: ini
+Add ``rt.lastmodifier`` to your buildout::
 
     [buildout]
     ...
@@ -87,7 +72,7 @@ Add ``rt.lastmodifier`` to your buildout:
 After that, install the "rt.lastmodifier" add-on product.
 
 .. Note::
-    Installation will trigger the new index creation and population. This can require some times
+    Installation will trigger an index creation and population. This can require some times
     on huge sites.
 
 Compatibility
