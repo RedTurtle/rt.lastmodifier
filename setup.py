@@ -9,7 +9,7 @@ setup(name='rt.lastmodifier',
       version=version,
       description="Greatly expand features and shown data in Plone document byline section",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
