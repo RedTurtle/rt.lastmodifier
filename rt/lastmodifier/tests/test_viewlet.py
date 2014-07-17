@@ -128,3 +128,15 @@ class TestViewlet(BaseTestCase):
         logout()
         pq = PyQuery(portal.document1())
         self.assertFalse('documentModifier' in portal.document1())
+
+    def test_changenote(self):
+        portal = self.layer['portal']
+        request = self.layer['request']
+        login(portal, TEST_USER_NAME)
+        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        # simulate the change
+        portal.portal_archivist.prepare(portal.document1)
+        # we need to manually simulate what JavaScript trick will do
+        portal.document1.getField('hidden_cmfeditions_version_comment').set(portal.document1,
+                                                                            'Done something evil')
+        self.assertTrue('<em class="documentModifierChanges"> Done something evil </em>' in portal.document1())
