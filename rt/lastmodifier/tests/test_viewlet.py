@@ -7,6 +7,7 @@ from plone.app.testing import login
 from plone.app.testing import logout
 from pyquery import PyQuery
 from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
+from zope.component import getMultiAdapter
 
 
 class TestViewlet(BaseTestCase):
@@ -123,3 +124,11 @@ class TestViewlet(BaseTestCase):
         portal.document1.getField('hidden_cmfeditions_version_comment').set(portal.document1,
                                                                             'Done something evil')
         self.assertTrue('<em class="documentModifierChanges"> Done something evil </em>' in portal.document1())
+
+    def test_calling_manage_viewlets(self):
+        # Prevent regression introduced in version 0.4
+        portal = self.layer['portal']
+        request = self.layer['request']
+        login(portal, TEST_USER_NAME)
+        view = getMultiAdapter((portal, request), name='manage-viewlets')
+        self.assertTrue('plone.belowcontenttitle.documentbyline' in view())
