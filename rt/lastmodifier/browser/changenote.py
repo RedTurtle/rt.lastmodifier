@@ -9,9 +9,12 @@ class ShowChangeNoteViewlet(ViewletBase):
     
     def changenote(self):
         """Get last saved change info"""
-        field = self.context.getField('hidden_cmfeditions_version_comment')
+        context = self.context
+        if not hasattr(context, 'getField'):
+            return None
+        field = context.getField('hidden_cmfeditions_version_comment')
         if field:
-            return field.get(self.context)
+            return field.get(context)
         return None
 
     def can_change_change_note_show_state(self):
