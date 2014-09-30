@@ -47,7 +47,7 @@ msgstr "da ${modifier}"
 #. Default: "Last change: ${changenote}"
 #: ../browser/document_byline.pt:76
 msgid "last_done_change"
-msgstr "Ultima modifica effetuata: ${changenote}"
+msgstr "Ultima modifica effettuata: ${changenote}"
 
 #. Default: "Last info shown is: ${changenote}"
 #: ../browser/versioning_edit.pt:126

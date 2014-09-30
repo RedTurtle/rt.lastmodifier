@@ -5,7 +5,7 @@ Changelog
 ------------------
 
 - Fixed issue in calling ``@@manage-viewlets`` [keul]
-
+- Fixed typo in italian translation [keul]
 
 0.4 (2014-07-17)
 ----------------
