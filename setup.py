@@ -7,7 +7,7 @@ tests_require = ['plone.app.testing', 'pyquery']
 
 setup(name='rt.lastmodifier',
       version=version,
-      description="Greatly extends features and shown data in Plone document byline section",
+      description="Extends features and shown data in Plone document byline section",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
