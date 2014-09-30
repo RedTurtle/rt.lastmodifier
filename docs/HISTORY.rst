@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.1 (unreleased)
+0.4.1 (2014-09-30)
 ------------------
 
 - Fixed issue in calling ``@@manage-viewlets`` [keul]
