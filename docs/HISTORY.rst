@@ -10,7 +10,8 @@ Changelog
 0.4.1 (2014-09-30)
 ------------------
 
-- Fixed issue in calling ``@@manage-viewlets`` [keul]
+- Fixed issue in calling ``@@manage-viewlets``, and generally
+  accessing site root [keul]
 - Fixed typo in italian translation [keul]
 
 0.4 (2014-07-17)
