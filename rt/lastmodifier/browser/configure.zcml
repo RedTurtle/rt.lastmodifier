@@ -4,7 +4,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="rt.lastmodifier">
 
-     <browser:page
+    <browser:page
         name="lastmodifier"
         for="*"
         class=".lastmodifier.LastModifierView"
@@ -47,6 +47,5 @@
         permission="plone.app.controlpanel.Security"
         layer="..interfaces.ILastModifierLayer"
         />
-
 
 </configure>
