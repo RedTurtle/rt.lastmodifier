@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.0 (unreleased)
+0.5.0 (2015-02-16)
 ------------------
 
 - When visiting folders, show last modifier and modification date taken
