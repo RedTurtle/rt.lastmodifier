@@ -4,7 +4,8 @@ Changelog
 0.5.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed italian translation typo
+  [keul] 
 
 
 0.5.0 (2015-02-16)

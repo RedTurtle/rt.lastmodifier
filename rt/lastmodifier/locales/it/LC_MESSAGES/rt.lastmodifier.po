@@ -24,7 +24,7 @@ msgid "Modifier"
 msgstr "Ultimo a modificare"
 
 msgid "Save and show last modifier user information on site contents (and make by-line viewlet fully customizable)"
-msgstr "Salva e mostra le informazioni sull'ultimo utente che ha eseguito modifiche (e rende la by-line viewlet completamente pesronalizzabile)"
+msgstr "Salva e mostra le informazioni sull'ultimo utente che ha eseguito modifiche (e rende la by-line viewlet completamente personalizzabile)"
 
 #: ../browser/versioning_edit.pt:115
 msgid "Show the changes note in document info"
