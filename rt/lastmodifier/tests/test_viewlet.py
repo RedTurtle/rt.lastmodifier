@@ -137,7 +137,6 @@ class TestViewlet(BaseTestCase):
     def test_byline_on_folder(self):
         portal = self.layer['portal']
         plone_utils = getToolByName(portal, 'plone_utils')
-        request = self.layer['request']
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Folder', id='folder', title="The Main Folder")
         portal.folder.invokeFactory(type_name='Document', id='doc1', title="Document 1",
