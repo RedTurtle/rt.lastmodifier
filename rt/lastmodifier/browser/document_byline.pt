@@ -28,7 +28,7 @@
   </tal:creator>
 
   <tal:dates define="published view/pub_date;
-                     modified context/ModificationDate"
+                     modified view/modification_date"
              condition="python:view.can_see_modified or published or view.can_see_last_modifier">
   <span class="documentPublished"
         tal:condition="python:published">

@@ -33,7 +33,7 @@ class LastModifierLayer(PloneSandboxLayer):
         acl_users.userFolderAddUser('user1', 'secret', ['Member'], [])
         member = portal.portal_membership.getMemberById('user1')
         member.setMemberProperties(mapping={"fullname": "User 1"})
-        setRoles(portal, 'user1', ['Member', 'Editor', 'Reviewer'])
+        setRoles(portal, 'user1', ['Member', 'Contributor', 'Editor', 'Reviewer'])
 
 
 LAST_MODIFIER_FIXTURE = LastModifierLayer()

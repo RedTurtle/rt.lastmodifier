@@ -1,11 +1,12 @@
 Changelog
 =========
 
-0.4.2 (unreleased)
+0.5.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- When visiting folders, show last modifier and modification date taken
+  by most recent child document, not from folder itself
+  [keul]
 
 0.4.1 (2014-09-30)
 ------------------

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from DateTime import DateTime
+from Products.CMFCore.utils import getToolByName
 from base import BaseTestCase
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
@@ -132,3 +133,25 @@ class TestViewlet(BaseTestCase):
         login(portal, TEST_USER_NAME)
         view = getMultiAdapter((portal, request), name='manage-viewlets')
         self.assertTrue('plone.belowcontenttitle.documentbyline' in view())
+
+    def test_byline_on_folder(self):
+        portal = self.layer['portal']
+        plone_utils = getToolByName(portal, 'plone_utils')
+        request = self.layer['request']
+        login(portal, TEST_USER_NAME)
+        portal.invokeFactory(type_name='Folder', id='folder', title="The Main Folder")
+        portal.folder.invokeFactory(type_name='Document', id='doc1', title="Document 1",
+                                    text="Lorem Ipsum")
+        logout()
+        login(portal, 'user1')
+        portal.folder.invokeFactory(type_name='Document', id='doc2', title="Document 2",
+                                    text="Dolor Sit Amet")
+        folder_mod_date = portal.folder.modified()
+        # Simulate that document has been created later that folder
+        portal.folder.doc2.setModificationDate(folder_mod_date + 1)
+        portal.folder.doc2.reindexObject(idxs=['modified', 'Modifier'])
+        doc_mod_date = portal.folder.doc2.modified()
+        pq = PyQuery(portal.folder())
+        date_str = plone_utils.toLocalizedTime(doc_mod_date, long_format=1)
+        self.assertTrue("last modified %s" % date_str in pq('.documentModified').text())
+        self.assertTrue('by User 1' in pq('.documentModified').text())

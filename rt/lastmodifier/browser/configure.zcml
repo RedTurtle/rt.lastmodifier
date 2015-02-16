@@ -12,7 +12,16 @@
         layer="..interfaces.ILastModifierLayer"
         />
 
+    <browser:page
+        name="lastmodifier"
+        for="Products.ATContentTypes.interface.IATFolder"
+        class=".lastmodifier.LastModifierFolderView"
+        permission="zope2.View"
+        layer="..interfaces.ILastModifierLayer"
+        />
+
     <browser:viewlet
+        for="*"
         name="plone.belowcontenttitle.documentbyline"
         layer="..interfaces.ILastModifierLayer"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
@@ -20,6 +29,17 @@
         template="document_byline.pt"
         permission="zope2.View"
         />
+
+    <browser:viewlet
+        for="Products.ATContentTypes.interface.IATFolder"
+        name="plone.belowcontenttitle.documentbyline"
+        layer="..interfaces.ILastModifierLayer"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineFolderViewlet"
+        template="document_byline.pt"
+        permission="zope2.View"
+        />
+
 
     <browser:viewlet
         zcml:condition="installed Products.CMFEditions"

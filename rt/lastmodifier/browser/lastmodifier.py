@@ -3,6 +3,7 @@
 import sys
 from AccessControl.SecurityManagement import newSecurityManager, setSecurityManager, getSecurityManager
 from AccessControl.User import UnrestrictedUser
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from plone.app.layout.viewlets.content import ContentHistoryViewlet
 from zope.component import queryMultiAdapter
@@ -30,8 +31,8 @@ class LastModifierView(BrowserView):
         
         try:
             if not history and sys.version_info < (2, 6):
-                # we didn't found any history, is Plone 3? Let's try with the old histrory viewlet
-                # to be sure, let's do it only if we are using Python 2.4
+                # We didn't found any history... is this a Plone 3? Let's try with the old history viewlet
+                # To be sure of that let's do it only if we are using Python 2.4
                 # Please remove this abomination when Plone 3.3 compatibity will be dropped
                 history = ContentHistoryViewlet(self.context, self.request, None, manager=None)
                 history.update()
@@ -42,3 +43,16 @@ class LastModifierView(BrowserView):
         finally:
             setSecurityManager(old_sm)
 
+
+class LastModifierFolderView(LastModifierView):
+    """Last modifier from folder: look last modifier from most recent content inside the folder""" 
+
+    def last_modifier(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        results = catalog(path='/'.join(self.context.getPhysicalPath()),
+                          sort_on='modified', sort_order='reverse', sort_limit=1)
+        if results:
+            new_context = results[0].getObject()
+            # BBB: dirty, but calling @@lastmodifier on new_context can return another Folder 
+            self.context = new_context
+        return super(LastModifierFolderView, self).last_modifier()
