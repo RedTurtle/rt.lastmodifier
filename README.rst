@@ -40,7 +40,8 @@ can't see the byline section by default).
 Show change notes
 -----------------
 
-This feature will show the comment to changes you did, that commonly are kept in the history section.
+This feature will show the comment to changes you did, that commonly are kept in the history section
+so this only works for content type where `versioning`_ is activated.
 
 The editor must explicitly choose if a change note must be putted in the byline section by selecting
 the "*Show the changes note in document info*" checkbox.
@@ -116,3 +117,5 @@ This product was developed by RedTurtle Technology team.
 .. image:: http://www.redturtle.it/redturtle_banner.png
    :alt: RedTurtle Technology Site
    :target: http://www.redturtle.it/
+
+.. _`versioning`: https://plone.org/documentation/manual/plone-4-user-manual/managing-content/versioning-plone-v3.3
