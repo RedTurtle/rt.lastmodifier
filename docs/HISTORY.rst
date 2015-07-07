@@ -1,12 +1,15 @@
 Changelog
 =========
 
-0.5.1 (unreleased)
+0.6.0 (unreleased)
 ------------------
 
 - Fixed italian translation typo
   [keul] 
-
+- Now save last modifier info in a low level annotation.
+  This way we can have this information also when the content type do not
+  use any versioning support (that is still the fallback)
+  [keul]
 
 0.5.0 (2015-02-16)
 ------------------

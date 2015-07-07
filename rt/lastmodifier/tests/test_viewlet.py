@@ -154,3 +154,15 @@ class TestViewlet(BaseTestCase):
         date_str = plone_utils.toLocalizedTime(doc_mod_date, long_format=1)
         self.assertTrue("last modified %s" % date_str in pq('.documentModified').text())
         self.assertTrue('by User 1' in pq('.documentModified').text())
+
+    def test_raw_lastmodifier(self):
+        # By default folder do not have any versioning support
+        portal = self.layer['portal']
+        plone_utils = getToolByName(portal, 'plone_utils')
+        login(portal, TEST_USER_NAME)
+        portal.invokeFactory(type_name='Folder', id='folder', title="The Main Folder")
+        logout()
+        login(portal, 'user1')
+        portal.folder.edit(description="Dolor Sit Amet")
+        pq = PyQuery(portal.folder())
+        self.assertTrue('by User 1' in pq('.documentModified').text())

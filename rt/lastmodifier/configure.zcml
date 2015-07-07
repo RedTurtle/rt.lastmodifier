@@ -7,6 +7,7 @@
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
+  <include package="Products.CMFPlone" />
   <include package="archetypes.schemaextender" />
 
   <adapter name="Modifier" factory=".indexer.last_modifier" />
@@ -16,6 +17,7 @@
            provides="archetypes.schemaextender.interfaces.ISchemaExtender" />
 
   <include file="permissions.zcml"/>
+  <include file="patches.zcml"/>
 
   <include package=".browser" />
   <include file="profiles.zcml" />

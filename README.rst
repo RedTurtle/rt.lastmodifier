@@ -22,8 +22,8 @@ New infos apart, all byline elements can now be controlled with a **granular sec
 This will change the way to handle document byline because commonly Plone simply use a couple of
 site-wide options: the *allow_anon_views_about* and the *displayPublicationDateInByline*.
 
-The viewlet will now handle many different informations: *author*, *last modifier*, *publication date*, *modification date*
-and *last versioning change note* (if versioning is enabled on the content).
+The viewlet will now handle many different informations: *author*, *last modifier*, *publication date*,
+*modification date* and *last versioning change note*.
 Each information is visible if the user has a specified permission:
 
 - ``rt.lastmodifier: documentByLine view author``
@@ -53,7 +53,8 @@ checking the option will not update that information.
 To *delete* the change note shown you must edit a document, provide an empty note while keeping the check
 selected.
 
-**Note**: this feature require JavaScript to work properly.
+**Note**: this feature require JavaScript to work properly *and* has only be tested for Archetypes based
+content types.
 
 Installation
 ============
@@ -94,11 +95,17 @@ Developed with the support of:
   
   .. image:: http://www.fe.camcom.it/cciaa-logo.png/
      :alt: CCIAA Ferrara - logo
+  
+* `Province of Vicenza`__
+
+  .. image:: http://www.provincia.vicenza.it/logo_provincia_vicenza.png
+     :alt: Province of Vicenza - logo
 
 All of them supports the `PloneGov initiative`__.
 
 __ http://www.ospfe.it/
 __ http://www.fe.camcom.it/
+__ http://www.provincia.vicenza.it/
 __ http://www.plonegov.it/
 
 Authors

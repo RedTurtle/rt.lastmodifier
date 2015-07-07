@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from AccessControl.SecurityManagement import newSecurityManager, setSecurityManager, getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
+from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.User import UnrestrictedUser
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from plone.app.layout.viewlets.content import ContentHistoryViewlet
 from zope.component import queryMultiAdapter
 from zope.interface import Interface
+from zope.annotation.interfaces import IAnnotations
+from zope.component import queryAdapter
 
 
 class UnrestrictedUser(UnrestrictedUser):
@@ -22,9 +26,17 @@ class LastModifierView(BrowserView):
     """Display info about last modifier""" 
 
     def last_modifier(self):
-        history = queryMultiAdapter((self.context, self.request), interface=Interface, name=u"contenthistory")
+        
+        # Let's see if we have any last_modifier annotation
+        raw_last_modifier = self._raw_last_modifier()
+        if raw_last_modifier:
+            return raw_last_modifier
 
-        # Security is in the iew definition. Here we act as an omnipotent user
+        # If we are here: try with with history support if is available.        
+        history = queryMultiAdapter((self.context, self.request),
+                                    interface=Interface, name=u"contenthistory")
+
+        # Security is in the view definition. Here we act as an omnipotent user
         old_sm = getSecurityManager()
         tmp_user = UnrestrictedUser(old_sm.getUser().getId() or '', '', ['Manager'], '')
         newSecurityManager(None, tmp_user)
@@ -42,6 +54,12 @@ class LastModifierView(BrowserView):
                     return full_history[0].get('actorid') or full_history[0].get('actor').get('username')
         finally:
             setSecurityManager(old_sm)
+    
+    def _raw_last_modifier(self):
+        annotations = queryAdapter(self.context, IAnnotations)
+        if not annotations:
+            return None
+        return annotations.get('rt.lastmodifier', {}).get('lastmodifier')
 
 
 class LastModifierFolderView(LastModifierView):

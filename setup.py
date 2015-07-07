@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.5.1.dev0'
+version = '0.6.0.dev0'
 
 tests_require = ['plone.app.testing', 'pyquery']
 
@@ -34,8 +34,10 @@ setup(name='rt.lastmodifier',
       extras_require=dict(test=tests_require),
       install_requires=[
           'setuptools',
+          'Products.CMFPlone',
           'plone.indexer',
           'archetypes.schemaextender',
+          'collective.monkeypatcher',
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
