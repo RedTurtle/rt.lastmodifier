@@ -31,6 +31,15 @@
         />
 
     <browser:viewlet
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        name="plone.belowcontenttitle.documentbyline"
+        layer="..interfaces.ILastModifierLayer"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineNullViewlet"
+        permission="zope2.View"
+        />
+
+    <browser:viewlet
         for="Products.ATContentTypes.interface.IATFolder"
         name="plone.belowcontenttitle.documentbyline"
         layer="..interfaces.ILastModifierLayer"
@@ -39,7 +48,6 @@
         template="document_byline.pt"
         permission="zope2.View"
         />
-
 
     <browser:viewlet
         zcml:condition="installed Products.CMFEditions"

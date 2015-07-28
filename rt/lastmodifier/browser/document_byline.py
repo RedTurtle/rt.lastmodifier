@@ -3,6 +3,7 @@
 from AccessControl import getSecurityManager
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as BaseDocumentBylineViewlet
 from plone.memoize.view import memoize
 from rt.lastmodifier.browser.changenote import ShowChangeNoteViewlet
@@ -79,3 +80,10 @@ class DocumentBylineFolderViewlet(DocumentBylineViewlet):
         if results:
             return results[0].modified
         return super(DocumentBylineFolderViewlet, self).modification_date()
+
+
+class DocumentBylineNullViewlet(ViewletBase):
+    """Do not display any byline at all"""
+
+    def index(self):
+        return ''

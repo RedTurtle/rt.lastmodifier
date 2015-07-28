@@ -10,6 +10,9 @@ Changelog
   This way we can have this information also when the content type do not
   use any versioning support (that is still the fallback)
   [keul]
+- Do not, never, display any byline on site root.
+  It's totally useless
+  [keul]
 
 0.5.0 (2015-02-16)
 ------------------
