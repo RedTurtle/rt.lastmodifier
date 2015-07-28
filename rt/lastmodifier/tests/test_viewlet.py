@@ -158,7 +158,6 @@ class TestViewlet(BaseTestCase):
     def test_raw_lastmodifier(self):
         # By default folder do not have any versioning support
         portal = self.layer['portal']
-        plone_utils = getToolByName(portal, 'plone_utils')
         login(portal, TEST_USER_NAME)
         portal.invokeFactory(type_name='Folder', id='folder', title="The Main Folder")
         logout()
@@ -170,7 +169,6 @@ class TestViewlet(BaseTestCase):
     def test_byline_on_site_root(self):
         # Do not display anything
         portal = self.layer['portal']
-        plone_utils = getToolByName(portal, 'plone_utils')
         login(portal, TEST_USER_NAME)
         pq = PyQuery(portal())
         self.assertFalse('last modified' in pq('.documentModified').text())
