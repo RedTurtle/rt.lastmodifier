@@ -1,11 +1,14 @@
 Changelog
 =========
 
-0.6.1 (unreleased)
+0.7.0 (unreleased)
 ------------------
 
+- Added the ``ILastModifierInertContent`` marker interface for disable
+  byline section on contents
+  [keul]
 - Fixed to byline infos: prevented some commas to be misdisplayed
- [keul]
+  [keul]
 
 
 0.6.0 (2015-07-28)

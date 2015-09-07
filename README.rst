@@ -37,6 +37,17 @@ To show last modifier info, *Creator* and *Modifier* must be not equals (just fo
 By default Anonymous users can't see anything (this will reproduce the Plone default behavior, where Anonymous
 can't see the byline section by default).
 
+Disabling byline on content types
+---------------------------------
+
+Sometimes the byline section is displayed on contents where you don't need it.
+
+In that case you can apply (from ZMI) a marker interface named ``ILastModifierInertContent`` to a single
+content, or let your 3rd-party content types to extends it.
+This will disable the byline section.
+
+Also, the byline section is automatically disabled on the Plone site root.
+
 Show change notes
 -----------------
 

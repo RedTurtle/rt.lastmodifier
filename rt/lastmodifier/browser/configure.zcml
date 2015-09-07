@@ -38,6 +38,14 @@
         class=".document_byline.DocumentBylineNullViewlet"
         permission="zope2.View"
         />
+    <browser:viewlet
+        for="..interfaces.ILastModifierInertContent"
+        name="plone.belowcontenttitle.documentbyline"
+        layer="..interfaces.ILastModifierLayer"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineNullViewlet"
+        permission="zope2.View"
+        />
 
     <browser:viewlet
         for="Products.ATContentTypes.interface.IATFolder"

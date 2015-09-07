@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.6.1.dev0'
+version = '0.7.0.dev0'
 
 tests_require = ['plone.app.testing', 'pyquery']
 
@@ -21,7 +21,7 @@ setup(name='rt.lastmodifier',
         "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
-      keywords='plone plonegov modifier catalog byline',
+      keywords='plone plonegov modifier byline',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.it',
       url='http://plone.org/products/rt.lastmodifier',

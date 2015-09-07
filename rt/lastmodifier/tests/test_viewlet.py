@@ -7,8 +7,10 @@ from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import logout
 from pyquery import PyQuery
+from rt.lastmodifier.interfaces import ILastModifierInertContent
 from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
 from zope.component import getMultiAdapter
+from zope.interface import alsoProvides
 
 
 class TestViewlet(BaseTestCase):
@@ -172,3 +174,11 @@ class TestViewlet(BaseTestCase):
         login(portal, TEST_USER_NAME)
         pq = PyQuery(portal())
         self.assertFalse('last modified' in pq('.documentModified').text())
+
+    def test_disable_byline(self):
+        portal = self.layer['portal']
+        login(portal, TEST_USER_NAME)
+        portal.invokeFactory(type_name='Document', id='doc', title="A document")
+        self.assertTrue('documentByLine' in portal.doc())
+        alsoProvides(portal.doc, ILastModifierInertContent)
+        self.assertFalse('documentByLine' in portal.doc())
