@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.0 (unreleased)
+1.0.0 (2015-09-07)
 ------------------
 
 - Added a new permission ``rt.lastmodifier: show long time format``.
