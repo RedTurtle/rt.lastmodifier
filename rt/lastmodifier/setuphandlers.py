@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFCore.utils import getToolByName
-
 from rt.lastmodifier import logger
 
 
@@ -28,6 +27,11 @@ def addKeyToCatalog(portal):
         logger.info("Indexing new index: %s.", ', '.join(indexables))
         catalog.manage_reindexIndex(ids=indexables)
 
+def migrateTo1110(context):
+    setup_tool = getToolByName(context, 'portal_setup')
+    setup_tool.runAllImportStepsFromProfile('profile-rt.lastmodifier:to_1110')
+    logger.info('New permission registered')
+    logger.info('Migrated to version 0.7')
 
 def setupVarious(context):
     if context.readDataFile('rt.lastmodifier_various.txt') is None:

@@ -40,6 +40,22 @@
       description="Migrate to version 0.4"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="to_1110"
+      title="rt.lastmodifier: migrate to 1110"
+      directory="profiles/to_1110"
+      description="Migrate to version 0.7"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:upgradeStep
+        title="Upgrade to rt.lastmodifier 0.7"
+        description="Migrates rt.lastmodifier to 1110"
+        source="1100"
+        destination="1110"
+        handler=".setuphandlers.migrateTo1110"
+        sortkey="1"
+        profile="rt.lastmodifier:default"
+    />
 
   <genericsetup:importStep
       name="rt.lastmodifier.various"

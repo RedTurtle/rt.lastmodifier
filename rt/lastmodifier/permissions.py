@@ -21,10 +21,14 @@ security.declarePublic('DocumentByLineViewPublishedDate')
 DocumentByLineViewPublishedDate = 'rt.lastmodifier: documentByLine view publication date'
 setDefaultRoles(DocumentByLineViewPublishedDate, ())
 
-security.declarePublic('DocumentByLineViewPublishedDate')
+security.declarePublic('DocumentByLineViewChangeNote')
 DocumentByLineViewChangeNote = 'rt.lastmodifier: documentByLine view change note'
 setDefaultRoles(DocumentByLineViewChangeNote, ())
 
-security.declarePublic('DocumentByLineViewPublishedDate')
+security.declarePublic('EditChangeNoteShowState')
 EditChangeNoteShowState = 'rt.lastmodifier: choose to show change note'
 setDefaultRoles(EditChangeNoteShowState, ())
+
+security.declarePublic('DocumentByLineViewLongTimeFormat')
+DocumentByLineViewLongTimeFormat = 'rt.lastmodifier: show long time format'
+setDefaultRoles(DocumentByLineViewLongTimeFormat, ('Anonymous', ))

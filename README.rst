@@ -31,11 +31,14 @@ Each information is visible if the user has a specified permission:
 - ``rt.lastmodifier: documentByLine view modification date``
 - ``rt.lastmodifier: documentByLine view publication date``
 - ``rt.lastmodifier: documentByLine view change note``
+- ``rt.lastmodifier: show long time format``
 
 To show last modifier info, *Creator* and *Modifier* must be not equals (just for not show a duplicate link).
 
 By default Anonymous users can't see anything (this will reproduce the Plone default behavior, where Anonymous
 can't see the byline section by default).
+
+The "show long time format" permission can enable disable the visibility of timing when dates are displayed.
 
 Disabling byline on content types
 ---------------------------------

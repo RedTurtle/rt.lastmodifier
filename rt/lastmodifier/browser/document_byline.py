@@ -12,6 +12,7 @@ from rt.lastmodifier.permissions import DocumentByLineViewChangeNote
 from rt.lastmodifier.permissions import DocumentByLineViewLastModifier
 from rt.lastmodifier.permissions import DocumentByLineViewModifiedDate
 from rt.lastmodifier.permissions import DocumentByLineViewPublishedDate
+from rt.lastmodifier.permissions import DocumentByLineViewLongTimeFormat
 from zope.component import getMultiAdapter
 from zope.interface import Interface
 
@@ -26,6 +27,7 @@ class DocumentBylineViewlet(BaseDocumentBylineViewlet, ShowChangeNoteViewlet):
         self.can_see_published = sm.checkPermission(DocumentByLineViewPublishedDate, self.portal_state.portal())
         self.can_see_modified = sm.checkPermission(DocumentByLineViewModifiedDate, self.portal_state.portal())
         self.can_see_change_note = sm.checkPermission(DocumentByLineViewChangeNote, self.portal_state.portal())
+        self.show_long_time = sm.checkPermission(DocumentByLineViewLongTimeFormat, self.portal_state.portal())
 
     @memoize
     def show(self):

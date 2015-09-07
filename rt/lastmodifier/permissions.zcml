@@ -27,6 +27,10 @@
     id="rt.lastmodifier.EditChangeNoteShowState"
     title="rt.lastmodifier: choose to show change note"
     />
+  <permission
+    id="rt.lastmodifier.DocumentByLineViewLongTimeFormat"
+    title="rt.lastmodifier: show long time format"
+    />
 
   <permission zcml:condition="not-have plone-41"
               id="plone.app.controlpanel.Site"

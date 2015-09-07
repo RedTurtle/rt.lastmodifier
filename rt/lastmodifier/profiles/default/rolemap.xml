@@ -38,5 +38,11 @@
       <role name="Owner"/>
       <role name="Editor"/>
     </permission>
+    <permission name="rt.lastmodifier: show long time format"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Anonymous"/>
+    </permission>
   </permissions>
 </rolemap>

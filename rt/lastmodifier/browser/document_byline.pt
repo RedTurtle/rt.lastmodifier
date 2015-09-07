@@ -36,7 +36,7 @@
               i18n:translate="box_published">
           published
         </span>
-        <span tal:replace="python:view.toLocalizedTime(published,long_format=1)">
+        <span tal:replace="python:view.toLocalizedTime(published,long_format=view.show_long_time)">
           August 16, 2001 at 23:35:59
         </span><tal:sep condition="python:modified and view.can_see_modified">,</tal:sep>
       </span>
@@ -47,7 +47,7 @@
           <span i18n:translate="box_last_modified">
             last modified
           </span>
-          <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
+          <span tal:replace="python:view.toLocalizedTime(modified,long_format=view.show_long_time)">
             August 16, 2001 at 23:35:59
           </span>
         </tal:modifiedDate>

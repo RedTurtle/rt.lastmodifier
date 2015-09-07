@@ -4,11 +4,15 @@ Changelog
 0.7.0 (unreleased)
 ------------------
 
+- Added a new permission ``rt.lastmodifier: show long time format``.
+  This can enable/disable the full time format on dates.
+  [keul]
 - Added the ``ILastModifierInertContent`` marker interface for disable
   byline section on contents
   [keul]
 - Fixed to byline infos: prevented some commas to be misdisplayed
   [keul]
+
 
 
 0.6.0 (2015-07-28)

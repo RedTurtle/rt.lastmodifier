@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="rt.lastmodifier: show long time format"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Anonymous"/>
+    </permission>
+  </permissions>
+</rolemap>
