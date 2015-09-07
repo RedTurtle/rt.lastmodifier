@@ -4,7 +4,8 @@ Changelog
 0.6.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed to byline infos: prevented some commas to be misdisplayed
+ [keul]
 
 
 0.6.0 (2015-07-28)

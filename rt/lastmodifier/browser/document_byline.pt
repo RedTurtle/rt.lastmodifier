@@ -29,57 +29,57 @@
 
   <tal:dates define="published view/pub_date;
                      modified view/modification_date"
-             condition="python:view.can_see_modified or published or view.can_see_last_modifier">
-  <span class="documentPublished"
-        tal:condition="python:published">
-    <span i18n:domain="rt.lastmodifier"
-          i18n:translate="box_published">
-      published
-    </span>
-    <span tal:replace="python:view.toLocalizedTime(published,long_format=1)">
-      August 16, 2001 at 23:35:59
-    </span><tal:sep condition="modified">,</tal:sep>
-  </span>
-
-  <span class="documentModified"
-        tal:condition="python:modified and view.can_see_modified or view.can_see_last_modifier">
-    <tal:modifiedDate condition="python:modified and view.can_see_modified">
-      <span i18n:translate="box_last_modified">
-        last modified
+             condition="python:view.can_see_modified or (published and view.can_see_published) or view.can_see_last_modifier">
+      <span class="documentPublished"
+            tal:condition="python:published">
+        <span i18n:domain="rt.lastmodifier"
+              i18n:translate="box_published">
+          published
+        </span>
+        <span tal:replace="python:view.toLocalizedTime(published,long_format=1)">
+          August 16, 2001 at 23:35:59
+        </span><tal:sep condition="python:modified and view.can_see_modified">,</tal:sep>
       </span>
-      <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
-        August 16, 2001 at 23:35:59
+    
+      <span class="documentModified"
+            tal:condition="python:modified and view.can_see_modified or view.can_see_last_modifier">
+        <tal:modifiedDate condition="python:modified and view.can_see_modified">
+          <span i18n:translate="box_last_modified">
+            last modified
+          </span>
+          <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
+            August 16, 2001 at 23:35:59
+          </span>
+        </tal:modifiedDate>
+        <tal:modifier tal:define="modifier_short_form view/last_modifier;"
+                      tal:condition="python:view.last_modifier() and view.can_see_modified and (view.last_modifier()!=view.creator() or not view.can_see_author)">
+          <tal:name tal:define="modifier_long_form string:?author=${modifier_short_form};
+                                modifier_is_openid python:'/' in modifier_short_form;
+                                modifier_id python:(modifier_short_form, modifier_long_form)[modifier_is_openid];">
+             <span class="documentModifier">
+                <tal:i18n i18n:domain="rt.lastmodifier" i18n:translate="label_by_modifier">
+                  by
+                  <a href="#"
+                     tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${modifier_id}"
+                     tal:content="view/modifiername"
+                     tal:omit-tag="python:view.modifier() is None"
+                     i18n:name="modifier">Johnny Five</a>
+                  </tal:i18n>
+             </span>
+          </tal:name>
+        </tal:modifier>
+        <tal:modification-notes tal:define="changenote view/changenote"
+                                tal:condition="python:changenote and view.can_see_change_note">
+            —
+            <tal:lastchange i18n:domain="rt.lastmodifier" i18n:translate="last_done_change">
+                Last change:
+                <em class="documentModifierChanges" i18n:name="changenote">
+                    <span tal:replace="changenote" />
+                </em>
+            </tal:lastchange>
+        </tal:modification-notes>
+    
       </span>
-    </tal:modifiedDate>
-    <tal:modifier tal:define="modifier_short_form view/last_modifier;"
-                  tal:condition="python:view.last_modifier() and view.last_modifier()!=view.creator()">
-      <tal:name tal:define="modifier_long_form string:?author=${modifier_short_form};
-                            modifier_is_openid python:'/' in modifier_short_form;
-                            modifier_id python:(modifier_short_form, modifier_long_form)[modifier_is_openid];">
-         <span class="documentModifier">
-            <tal:i18n i18n:domain="rt.lastmodifier" i18n:translate="label_by_modifier">
-              by
-              <a href="#"
-                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${modifier_id}"
-                 tal:content="view/modifiername"
-                 tal:omit-tag="python:view.modifier() is None"
-                 i18n:name="modifier">Johnny Five</a>
-              </tal:i18n>
-         </span>
-      </tal:name>
-    </tal:modifier>
-    <tal:modification-notes tal:define="changenote view/changenote"
-                            tal:condition="python:changenote and view.can_see_change_note">
-        —
-        <tal:lastchange i18n:domain="rt.lastmodifier" i18n:translate="last_done_change">
-            Last change:
-            <em class="documentModifierChanges" i18n:name="changenote">
-                <span tal:replace="changenote" />
-            </em>
-        </tal:lastchange>
-    </tal:modification-notes>
-
-  </span>
   </tal:dates>
 
   <tal:expired tal:condition="view/isExpired">
