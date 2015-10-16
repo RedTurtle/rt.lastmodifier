@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.0.1 (2015-10-16)
 ------------------
 
 - Added memoize for caching the values of last_modifier method
