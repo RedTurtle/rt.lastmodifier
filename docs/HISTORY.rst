@@ -4,7 +4,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added memoize for caching the values of last_modifier method
+  [fdelia]
 
 
 1.0.0 (2015-09-07)
@@ -25,7 +26,7 @@ Changelog
 ------------------
 
 - Fixed italian translation typo
-  [keul] 
+  [keul]
 - Now save last modifier info in a low level annotation.
   This way we can have this information also when the content type do not
   use any versioning support (that is still the fallback)
