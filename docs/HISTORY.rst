@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.2 (unreleased)
+1.0.2 (2015-12-16)
 ------------------
 
 - Fix document by line folder viewlet to take last modifier
