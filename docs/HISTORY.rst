@@ -4,7 +4,9 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix document by line folder viewlet to take last modifier
+  from last modified content inside the folder
+  [fdelia]
 
 
 1.0.1 (2015-10-16)

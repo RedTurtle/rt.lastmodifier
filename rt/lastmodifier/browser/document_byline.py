@@ -78,7 +78,8 @@ class DocumentBylineFolderViewlet(DocumentBylineViewlet):
 
     def modification_date(self):
         catalog = getToolByName(self.context, 'portal_catalog')
-        results = catalog(sort_on='modified', sort_order='reverse', sort_limit=1)
+        results = catalog(path='/'.join(self.context.getPhysicalPath()),
+                          sort_on='modified', sort_order='reverse', sort_limit=1)
         if results:
             return results[0].modified
         return super(DocumentBylineFolderViewlet, self).modification_date()
