@@ -69,7 +69,7 @@
         />
 
     <!-- override Plone default, to hide some fields -->
-    <browser:page
+    <!-- <browser:page
         name="site-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".site.SiteControlPanel"
@@ -82,6 +82,6 @@
         class=".security.SecurityControlPanel"
         permission="plone.app.controlpanel.Security"
         layer="..interfaces.ILastModifierLayer"
-        />
+        /> -->
 
 </configure>

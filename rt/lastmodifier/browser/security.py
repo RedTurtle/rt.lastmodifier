@@ -2,7 +2,6 @@
 
 from plone.app.controlpanel.security import ISecuritySchema
 from plone.app.controlpanel.security import SecurityControlPanel as BaseSecurityControlPanel
-from zope.formlib.form import FormFields
 
 
 class SecurityControlPanel(BaseSecurityControlPanel):
@@ -11,4 +10,7 @@ class SecurityControlPanel(BaseSecurityControlPanel):
     Now we use the permissions
     """
 
-    form_fields = FormFields(ISecuritySchema).omit('allow_anon_views_about')
+    # form_fields = FormFields(ISecuritySchema).omit('allow_anon_views_about')
+    def updateFields(self):
+        super(SiteControlPanel, self).updateFields()
+        # nascondere il campo a mano
