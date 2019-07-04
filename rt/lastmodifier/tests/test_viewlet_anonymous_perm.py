@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
-from base import BaseTestCase
+from rt.lastmodifier.tests.base import BaseTestCase
 from DateTime import DateTime
 from plone.app.testing import login
 from plone.app.testing import logout
 from plone.app.testing import TEST_USER_NAME
 from pyquery import PyQuery
-from rt.lastmodifier.testing import LAST_MODIFIER_INTEGRATION_TESTING
-from rt.lastmodifier.permissions import DocumentByLineViewAuthor, DocumentByLineViewLastModifier,\
-                                        DocumentByLineViewModifiedDate, DocumentByLineViewPublishedDate
+from rt.lastmodifier.testing import RT_LASTMODIFIER_INTEGRATION_TESTING
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from rt.lastmodifier.permissions import (
+    DocumentByLineViewAuthor,
+    DocumentByLineViewLastModifier,
+    DocumentByLineViewModifiedDate,
+    DocumentByLineViewPublishedDate,
+)
 
 
 class TestViewletAnonymousPermissions(BaseTestCase):
@@ -16,27 +22,34 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     anonymous user
     """
 
-    layer = LAST_MODIFIER_INTEGRATION_TESTING
+    layer = RT_LASTMODIFIER_INTEGRATION_TESTING
 
     def setUp(self):
         self.markRequestWithLayer()
         request = self.layer['request']
         portal = self.layer['portal']
         request.set('ACTUAL_URL', 'http://nohost/plone/document1')
-        for perm in [DocumentByLineViewAuthor,
-                     DocumentByLineViewPublishedDate,
-                     DocumentByLineViewModifiedDate,
-                     DocumentByLineViewLastModifier]:
+        for perm in [
+            DocumentByLineViewAuthor,
+            DocumentByLineViewPublishedDate,
+            DocumentByLineViewModifiedDate,
+            DocumentByLineViewLastModifier,
+        ]:
 
-            portal.manage_permission(perm, roles=["Anonymous",
-                                                  "Member",
-                                                  "Manager",
-                                                  "Site Administrator"])
+            portal.manage_permission(
+                perm,
+                roles=["Anonymous", "Member", "Manager", "Site Administrator"],
+            )
 
     def test_author(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         self.assertTrue('documentAuthor' in portal.document1())
@@ -44,7 +57,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_author_anonymous(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         logout()
@@ -53,7 +71,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_published_date(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.setEffectiveDate(DateTime())
         portal.document1.reindexObject()
@@ -62,7 +85,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_published_date_anonymous(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.setEffectiveDate(DateTime())
         portal.document1.reindexObject()
@@ -72,7 +100,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_modified_date(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         self.assertTrue('documentModified' in portal.document1())
@@ -80,7 +113,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_modified_date_anonymous(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         logout()
@@ -89,7 +127,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_same_creator_and_modifier(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         self.assertFalse('documentModifier' in portal.document1())
@@ -97,7 +140,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_same_creator_and_modifier_anonymous(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
         portal.document1.reindexObject()
         logout()
@@ -106,7 +154,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
     def test_different_creator_and_modifier(self):
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         logout()
         login(portal, 'user1')
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
@@ -114,8 +167,10 @@ class TestViewletAnonymousPermissions(BaseTestCase):
         pq = PyQuery(portal.document1())
         self.assertEqual(len(pq(".documentModifier")), 1)
         self.assertEqual(pq(".documentModifier").text(), 'by User 1')
-        self.assertEqual(pq(".documentModifier a").attr('href'),
-                         'http://nohost/%s/author/user1' % portal.getId())
+        self.assertEqual(
+            pq(".documentModifier a").attr('href'),
+            'http://nohost/%s/author/user1' % portal.getId(),
+        )
 
     def test_different_creator_and_modifier_anonymous(self):
         """
@@ -124,7 +179,12 @@ class TestViewletAnonymousPermissions(BaseTestCase):
         """
         portal = self.layer['portal']
         login(portal, TEST_USER_NAME)
-        portal.invokeFactory(type_name='Document', id='document1', title="Document 1", text="foo")
+        portal.invokeFactory(
+            type_name='Document',
+            id='document1',
+            title="Document 1",
+            text="foo",
+        )
         logout()
         login(portal, 'user1')
         portal.portal_workflow.doActionFor(portal.document1, 'publish')
