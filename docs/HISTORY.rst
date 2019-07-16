@@ -1,10 +1,10 @@
 Changelog
 =========
 
-1.0.3.dev0 (unreleased)
+1.1.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Python3 compatibility [cekk]
 
 
 1.0.2 (2015-12-16)
