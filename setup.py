@@ -51,6 +51,7 @@ setup(
         'z3c.jbot',
         'collective.monkeypatcher',
         'plone.app.dexterity',
+        'plone.api',
     ],
     extras_require={
         'test': [
