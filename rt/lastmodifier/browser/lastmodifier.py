@@ -4,7 +4,6 @@ import sys
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.User import UnrestrictedUser
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from plone.app.layout.viewlets.content import ContentHistoryViewlet
@@ -13,6 +12,11 @@ from zope.component import queryMultiAdapter
 from zope.interface import Interface
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryAdapter
+
+try:
+    from AccessControl.User import UnrestrictedUser
+except ImportError:
+    from AccessControl.User import Super as UnrestrictedUser
 
 
 class UnrestrictedUser(UnrestrictedUser):
