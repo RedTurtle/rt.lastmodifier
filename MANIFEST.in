@@ -5,3 +5,5 @@ recursive-include rt *
 
 global-exclude *.pyc
 global-include *.mo
+include *.txt
+exclude tox.ini
