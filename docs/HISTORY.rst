@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.0 (unreleased)
+1.1.0 (2020-03-07)
 ------------------
 
 - Python3 compatibility [cekk]
