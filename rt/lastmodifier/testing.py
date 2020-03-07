@@ -1,46 +1,49 @@
 # -*- coding: utf-8 -*-
-
-from zope.configuration import xmlconfig
-
+from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
-from plone.app.testing import applyProfile
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
+import rt.lastmodifier
 
-class LastModifierLayer(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE, )
+class RtLastmodifierLayer(PloneSandboxLayer):
+
+    defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
-        # Load ZCML for this package
-        import rt.lastmodifier
-        xmlconfig.file('configure.zcml',
-                       rt.lastmodifier,
-                       context=configurationContext)
-        z2.installProduct(app, 'rt.lastmodifier')
+        # Load any other ZCML that is required for your tests.
+        # The z3c.autoinclude feature is disabled in the Plone fixture base
+        # layer.
+        self.loadZCML(package=rt.lastmodifier)
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'rt.lastmodifier:default')
-        portal.portal_workflow.setDefaultChain("simple_publication_workflow")
-        #quickInstallProduct(portal, 'rt.lastmodifier')
-        setRoles(portal, TEST_USER_ID, ['Member', 'Manager'])
-        acl_users = portal.acl_users
-        acl_users.userFolderAddUser('user1', 'secret', ['Member'], [])
-        member = portal.portal_membership.getMemberById('user1')
-        member.setMemberProperties(mapping={"fullname": "User 1"})
-        setRoles(portal, 'user1', ['Member', 'Contributor', 'Editor', 'Reviewer'])
 
 
-LAST_MODIFIER_FIXTURE = LastModifierLayer()
-LAST_MODIFIER_INTEGRATION_TESTING = \
-    IntegrationTesting(bases=(LAST_MODIFIER_FIXTURE, ),
-                       name="LastModifier:Integration")
-LAST_MODIFIER_FUNCTIONAL_TESTING = \
-    FunctionalTesting(bases=(LAST_MODIFIER_FIXTURE, ),
-                       name="LastModifier:Functional")
+RT_LASTMODIFIER_FIXTURE = RtLastmodifierLayer()
 
+
+RT_LASTMODIFIER_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(RT_LASTMODIFIER_FIXTURE,),
+    name='RtLastmodifierLayer:IntegrationTesting',
+)
+
+
+RT_LASTMODIFIER_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(RT_LASTMODIFIER_FIXTURE,),
+    name='RtLastmodifierLayer:FunctionalTesting',
+)
+
+
+RT_LASTMODIFIER_ACCEPTANCE_TESTING = FunctionalTesting(
+    bases=(
+        RT_LASTMODIFIER_FIXTURE,
+        REMOTE_LIBRARY_BUNDLE_FIXTURE,
+        z2.ZSERVER_FIXTURE,
+    ),
+    name='RtLastmodifierLayer:AcceptanceTesting',
+)

@@ -13,12 +13,24 @@
         />
 
     <browser:page
+        zcml:condition="installed Products.ATContentTypes"
         name="lastmodifier"
         for="Products.ATContentTypes.interface.IATFolder"
         class=".lastmodifier.LastModifierFolderView"
         permission="zope2.View"
         layer="..interfaces.ILastModifierLayer"
         />
+    <browser:viewlet
+        zcml:condition="installed Products.ATContentTypes"
+        for="Products.ATContentTypes.interface.IATFolder"
+        name="plone.belowcontenttitle.documentbyline"
+        layer="..interfaces.ILastModifierLayer"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".document_byline.DocumentBylineFolderViewlet"
+        template="document_byline.pt"
+        permission="zope2.View"
+        />
+    
 
     <browser:viewlet
         for="*"
@@ -48,17 +60,7 @@
         />
 
     <browser:viewlet
-        for="Products.ATContentTypes.interface.IATFolder"
-        name="plone.belowcontenttitle.documentbyline"
-        layer="..interfaces.ILastModifierLayer"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".document_byline.DocumentBylineFolderViewlet"
-        template="document_byline.pt"
-        permission="zope2.View"
-        />
-
-    <browser:viewlet
-        zcml:condition="installed Products.CMFEditions"
+        zcml:condition="installed Products.Archetypes"
         for="Products.CMFEditions.interfaces.IVersioned"
         name="cmfeditions.versioningfields"
         manager="Products.Archetypes.interfaces.IEditAfterFieldsets"
@@ -66,10 +68,10 @@
         template="versioning_edit.pt"
         layer="..interfaces.ILastModifierLayer"
         permission="cmf.ModifyPortalContent"
-        />
+    />
 
-    <!-- override Plone default, to hide some fields -->
-    <browser:page
+        <!-- override Plone default, to hide some fields -->
+    <!-- <browser:page
         name="site-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".site.SiteControlPanel"
@@ -82,6 +84,6 @@
         class=".security.SecurityControlPanel"
         permission="plone.app.controlpanel.Security"
         layer="..interfaces.ILastModifierLayer"
-        />
+        /> -->
 
 </configure>

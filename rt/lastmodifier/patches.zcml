@@ -7,15 +7,6 @@
     <include package="collective.monkeypatcher" />
 
     <monkey:patch
-        description="lastmodifier raw info for Archetypes"
-        class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
-        original="notifyModified"
-        replacement=".patches.notifyModified"
-        preserveOriginal="True"
-        docstringWarning="True"
-        />
-
-    <monkey:patch
         zcml:condition="installed plone.dexterity"
         description="lastmodifier raw info for Dexterity"
         class="plone.dexterity.content.DexterityContent"

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from plone.app.controlpanel.site import ISiteSchema
-from plone.app.controlpanel.site import SiteControlPanel as BaseSiteControlPanel
-from zope.formlib.form import FormFields
+from Products.CMFPlone.interfaces import ISiteSchema
+from Products.CMFPlone.controlpanel.browser.site import SiteControlPanel as BaseSiteControlPanel
 
 
 class SiteControlPanel(BaseSiteControlPanel):
@@ -11,4 +10,7 @@ class SiteControlPanel(BaseSiteControlPanel):
     Now we use the permissions
     """
 
-    form_fields = FormFields(ISiteSchema).omit('display_pub_date_in_byline')
+    # form_fields = FormFields(ISiteSchema).omit('display_pub_date_in_byline')
+    def updateFields(self):
+        super(SiteControlPanel, self).updateFields()
+        # nascondere il campo a mano
