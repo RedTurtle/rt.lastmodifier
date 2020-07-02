@@ -4,7 +4,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix problem on patch when deleting contents.
+  [cekk]
 
 
 1.1.0 (2020-03-07)
