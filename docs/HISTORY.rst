@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.1 (unreleased)
+1.1.1 (2020-07-02)
 ------------------
 
 - Fix problem on patch when deleting contents.
