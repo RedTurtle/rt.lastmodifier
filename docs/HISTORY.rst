@@ -4,7 +4,8 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Pytohon3 chore.
+  [folix-01]
 
 
 1.1.1 (2020-07-02)
