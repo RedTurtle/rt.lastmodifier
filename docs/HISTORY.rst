@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.2 (unreleased)
+1.1.2 (2024-02-07)
 ------------------
 
 - Python3 chore.
