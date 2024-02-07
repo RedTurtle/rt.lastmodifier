@@ -4,7 +4,7 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Pytohon3 chore.
+- Python3 chore.
   [folix-01]
 
 
